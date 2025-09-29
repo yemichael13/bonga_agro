@@ -37,11 +37,11 @@ const Navbar = () => {
       {/* Menu */}
       <div className={`absolute md:static mb-4 bg-white md:min-h-fit min-h-[20vh] border-b-gray-400 md:border-none md:shadow-none shadow-lg left-0 top-20 w-full md:w-auto px-5 transition-all duration-300 ${menuOpen ? 'block' : 'hidden'} md:flex md:items-center md:justify-end`}>
         <ul className="flex md:flex-row flex-col justify-center items-center md:gap-8 gap-8 px-4 py-2 text-sm md:mx-4">
-          <li><a href="#" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
+          <li><a href="#home" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
             Home
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
-          <li><a href="#" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
+          <li><a href="#about-us" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
             About Us
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
