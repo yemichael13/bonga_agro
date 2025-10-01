@@ -199,7 +199,7 @@ const App = () => {
               <section id="contact" className="w-full my-8 pt-25 px-4 md:px-10">
                 <h1 className="font-serif text-6xl text-center my-4">Contact Us</h1>
                 <h5 className="text-center">Have a question or need a quote? Feel free to reach out to us!</h5>
-                <div className="grid grid-cols-1 md:grid-cols-3 md:gap-40 gap-10 text-center my-8 py-8 md:px-20 px-2 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-3 md:gap-40 gap-5 text-center my-8 py-8 md:px-20 px-2 w-full">
             <div className="flex flex-col items-center gap-2 bg-white p-8 rounded-lg ">
               <ion-icon name="call-outline" size="large"></ion-icon>
               <h2 className="text-4xl font-bold">Call</h2>

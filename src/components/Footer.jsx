@@ -16,9 +16,15 @@ const Footer = () => {
     <div className='w-full h-auto  flex md:flex-row flex-col gap-4 md:justify-between items-center  mt-2 md:mt-8 p-8'>
         <div className='flex flex-col ' >
             <a href="/" className="cursor-pointer">
-                <img src={Logo} alt="Logo" className="h-10 w-10 object-contain " />
+                <img src={Logo} alt="Logo" className="h-20 w-20 object-contain " />
             </a>
-            
+            <div>
+              <h5>Subscribe to our newsletter for the latest updates on new features and product releases.</h5>
+              <div className='flex flex-row mt-4'>
+                <input type="email" placeholder='Enter your email' className='border-1 border-gray-500 rounded-l-full p-2 w-2/3 outline-none text-center'/>
+                <button className='bg-amber-600 text-center text-white font-semibold px-2 md:px-6 py-2 border-1 w-1/3 border-amber-700 rounded-r-full hover:bg-white hover:text-amber-700 duration-300'>Subscribe</button>
+              </div>
+            </div>
         </div>
         <div className='flex flex-row justify-center items-center gap-8 md:w-1/2 ' >
             <div >
@@ -67,7 +73,7 @@ const Footer = () => {
         
     </div>
     <div className=' border-t border-t-black w-4/5  p-4'>
-        <p className="font-light">&copy; {new Date().getFullYear()} Philadephia generation baptist church </p>
+        <p className="font-light">&copy; {new Date().getFullYear()} Bonga Agro PLC </p>
     </div>
   </section>
     );
