@@ -26,6 +26,7 @@ const steps = [
 
 const StepsMobile = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [showMore, setShowMore] = useState(false);
   const containerRef = useRef(null);
 
   // Swipe up/down support
@@ -67,7 +68,26 @@ const StepsMobile = () => {
         <div className="flex-1 max-w-lg">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Discover the Power of Our Products</h2>
         <p className="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-        <button className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md mb-4">Read More</button>
+        {!showMore && (
+          <button className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md mb-4" onClick={() => setShowMore(true)}>Read More</button>
+        )}
+        <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showMore ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className={`${showMore ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-500`}>
+            {showMore && (
+              <>
+                <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Spices</span> – Grown in the fertile forest areas of Keficho Zone, our spices, including <span className="font-semibold text-amber-600">false cardamom (korarima)</span>, are cultivated using natural and sustainable methods. Careful harvesting, proper drying, and hygienic processing ensure superior aroma, flavor, and purity.</span>
+                <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Organic Honey</span> – Our honey is sourced from forest and highland areas, free from chemicals and antibiotics. We follow organic beekeeping practices that guarantee <span className="font-semibold text-amber-600">100% natural honey</span> with high nutritional value and traceability.</span>
+                <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Dairy Products</span> – Yebonga Agro PLC’s dairy line emphasizes <span className="font-semibold text-amber-600">freshness, hygiene, and nutrition.</span> From milk collection to processing and packaging, strict quality control systems are applied to meet food safety standards.</span>
+                <span className="block mt-2 text-lg font-semibold ">To maintain and assure quality, we:</span>
+                <span className="block mt-2 text-lg font-light py-2 text-gray-700">Implement Good Agricultural Practices (GAP) and Good Manufacturing Practices (GMP).</span>
+                <span className="block mt-2 text-lg font-light py-2 text-gray-700">Train and support smallholder farmers in improved production and handling methods.</span>
+                <span className="block mt-2 text-lg font-light py-2 text-gray-700">Apply rigorous quality control checks at every stage of production and supply.</span>
+                <span className="block mt-2 text-lg font-light py-2 text-gray-700">Strive for certifications (organic, fair trade, or export standards) to meet both local and global market requirements.</span>
+                <button className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md mb-4" onClick={() => setShowMore(false)}>Show Less</button>
+              </>
+            )}
+          </div>
+        </div>
       </div>
       {steps.map((step, idx) => (
         <motion.div

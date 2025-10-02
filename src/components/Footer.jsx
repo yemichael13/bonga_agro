@@ -12,7 +12,7 @@ const Footer = () => {
     }
   };
     return (
-        <section>
+        <section id='footer'>
     <div className='w-full h-auto  flex md:flex-row flex-col gap-4 md:justify-between items-center  mt-2 md:mt-8 p-8'>
         <div className='flex flex-col ' >
             <a href="/" className="cursor-pointer">

@@ -8,10 +8,21 @@ import Pic_11 from "./assets/img_11.jpeg";
 import StepsSection from "./components/StepsSection";
 import StepsMobile from "./components/StepsMobile";
 import Footer from "./components/Footer";
+import { motion } from "framer-motion";
 // Placeholder for image detail page
 const ImageDetail = () => <div className="min-h-[50vh] flex items-center justify-center text-3xl">Image Detail Page (Coming Soon)</div>;
 
 const App = () => {
+  const [showMoreAbout, setShowMoreAbout] = React.useState(false);
+  const handleSmoothScroll = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href').replace('#', '');
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false);
+    }
+  };
   return (
     <Router>
       <div className="w-full h-auto overflow-x-hidden pt-20">
@@ -20,14 +31,52 @@ const App = () => {
           <Route path="/" element={
             <>
               <section id="home" className="flex flex-col items-center justify-center bg-white">
-                <h1 className="text-9xl px-2 my-10 font-bold">Bonga Agro PLC</h1>
-                <h3 className="md:text-5xl px-2 text-4xl my-5 text-center font-serif text-amber-700">"Bringing Ethiopia's Unique Flavours To The World"</h3>
-                <div className="w-full text-center px-10 py-5 bg-orange-200 my-4">
-                  <p className="md:text-2xl text-1xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+                <motion.h1
+                  className="md:text-9xl text-8xl px-2 my-10 font-bold"
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 3 }}
+                >
+                  Yebonga Agro PLC
+                </motion.h1>
+                <motion.h3
+                  className="md:text-5xl px-2 text-4xl my-5 text-center font-serif text-amber-700"
+                  animate={{ x: [0, -30, 30, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
+                >
+                  "Bringing Ethiopia's Unique Flavours To The World"
+                </motion.h3>
+                
+                <div className="w-full md:text-center px-10 py-5 bg-orange-200 my-4">
+                  <motion.p 
+                    className="md:text-lg text-sm "
+                   
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 3 }}
+                  >
+                     Yebonga Agro PLC is a newly established agribusiness enterprise founded with the ambition of tapping into Ethiopia’s rich natural resources to produce high-quality and sustainable agricultural products. Although recently formed, the company is rooted in a strong vision to contribute to rural development, export diversification, and improved livelihoods through modern and inclusive agribusiness practices.
+                  </motion.p>
                 </div>
                 <div className="flex flex-col md:flex-row justify-between items-center my-10 gap-5 md:gap-20">
-                  <button className="bg-amber-700 text-white font-bold px-6 py-3 border-2 border-amber-700 rounded-full text-xl hover:cursor-pointer hover:bg-white hover:text-amber-700  transition-colors duration-300">Get In Touch</button>
-                  <button className="bg-white text-amber-700 border-2 font-bold border-amber-700 px-6 py-3 rounded-full text-xl ml-4 hover:cursor-pointer hover:bg-amber-700 hover:text-white transition-colors duration-300">Subscribe to Newsletter</button>
+                  <motion.a
+                    href="#contact"
+                    onClick={handleSmoothScroll}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <button className="bg-amber-700 text-white font-bold px-6 py-3 border-2 border-amber-700 rounded-full text-xl hover:cursor-pointer hover:bg-white hover:text-amber-700  transition-colors duration-300">Get In Touch</button>
+                  </motion.a>
+                  <motion.a
+                    href="#footer"
+                    onClick={handleSmoothScroll}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                  >
+                    <button className="bg-white text-amber-700 border-2 font-bold border-amber-700 px-6 py-3 rounded-full text-xl ml-4 hover:cursor-pointer hover:bg-amber-700 hover:text-white transition-colors duration-300">Subscribe to Newsletter</button>
+                  </motion.a>
                 </div>
               </section>
               <section id="gallery" className="w-full my-8">
@@ -38,8 +87,53 @@ const App = () => {
                 </div>
               </section>
               <section id="about-us" className="w-full my-8 pt-25 px-4 md:px-10">
-                <h1 className="text-6xl my-4 font-serif">About Us</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.<span className="text-amber-600 cursor-pointer"> Read More</span></p>
+                <motion.h1 
+                  className="text-6xl my-4 font-serif"
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 3 }}
+                >
+                  About Us
+                </motion.h1>
+                
+                <div>
+                  <motion.p
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                    Yebonga Agro PLC is a young and dynamic agribusiness company committed to harnessing Ethiopia’s abundant natural resources to produce premium and sustainable agricultural products. Despite being newly established, the company is driven by a clear vision: to foster rural development, diversify export opportunities, and enhance livelihoods through modern, innovative, and inclusive farming practices.
+                  </motion.p>
+                  
+                    <span
+                      className="text-amber-600 cursor-pointer ml-2 underline"
+                      onClick={() => setShowMoreAbout(true)}
+                    >
+                      Read More
+                    </span>
+                  
+                  <div
+                    className={`transition-all duration-500 ease-in-out overflow-hidden ${showMoreAbout ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                  >
+                    <div className={`${showMoreAbout ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-500`}> 
+                      {showMoreAbout && (
+                        <>
+                          
+                          <span className="block mt-2 md:text-2xl text-lg font-semibold ">History</span>
+                          <span className="block text-gray-700 md:text-lg text-sm py-2 font-light">Yebonga Agro PLC is a newly established agribusiness enterprise founded with the ambition of tapping into Ethiopia’s rich natural resources to produce high-quality and sustainable agricultural products. Although recently formed, the company is rooted in a strong vision to contribute to rural development, export diversification, and improved livelihoods through modern and inclusive agribusiness practices.</span>
+                          <span className="block mt-2 md:text-2xl text-lg font-semibold ">Background</span>
+                          <span className="block text-gray-700 md:text-lg text-sm py-2 font-light">The company is a share company and established with a total capital of 10 million Eth Birr. With a strong commitment to quality, sustainability, and inclusiveness, Yebonga Agro PLC Company aims to be a trusted brand in Ethiopia and beyond. The company has identified the forest areas of Kaffa Zone, South-Western Ethiopia region as a suitable site for cultivating and processing high-value spices, including <span className="text-amber-700">false cardamom (Aframomum corrorima)</span>, a unique Ethiopian spice with growing demand in both domestic and international markets. Yebonga Agro PLC also plans to establish apiaries in forest and highland areas to produce <span className="text-amber-600">pure, organic honey</span>, leveraging Ethiopia’s global reputation as a source of natural honey varieties. The company’s honey production will emphasize sustainability, biodiversity conservation, and quality standards for export. The company produces quality products at its own land and collects products from the local farmers and cooperatives after giving practical training about production of good quality products and proper post-harvest management.</span>
+                          <span
+                            className="text-amber-600 cursor-pointer ml-2 underline block mt-2"
+                            onClick={() => setShowMoreAbout(false)}
+                          >
+                            Show Less
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6">
                      
                   <div className="mb-6 md:mb-0 py-10 border-1 border-amber-700 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2">
@@ -50,9 +144,16 @@ const App = () => {
                     <h2 className="text-4xl font-serif text-center mb-4">Mission</h2>
                     <p>To sustainably produce and process premium organic spices, coffee, dairy, and honey by empowering local communities, preserving forests and biodiversity, adopting innovative practices, and delivering high-quality, ethically-sourced products to local and international markets</p>
                   </div>
-                  <div className="mb-6 md:mb-0 py-10 border-1 border-amber-700 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2">
-                    <h2 className="text-4xl font-serif text-center mb-4">Values</h2>
-                    <p>To lead Africa in the production and processing of organic spices, coffee, dairy, and honey, setting the standard for quality, sustainability, and innovation while delivering premium products to local and international consumers.</p>
+                  <div className="mb-6 md:mb-0 py-10 border-1 text-center border-amber-700 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                    <h2 className="text-4xl font-serif text-center mb-4">Core Values</h2>
+                    <p>Quality Excellence <br />
+                      Sustainability<br />
+                      Innovation and Growth<br />
+                      Integrity and Transparency<br />
+                      Inclusiveness<br />
+                      Partnership and Collaboration<br />
+                      Customer-Centric Approach
+                      </p>
                   </div>
                 </div>
 
