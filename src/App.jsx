@@ -30,7 +30,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={
             <>
-              <section id="home" className="flex flex-col items-center justify-center bg-white">
+              <section id="home" className="flex flex-col items-center justify-center  bg-white">
                 <motion.h1
                   className="md:text-9xl text-8xl px-2 my-10 font-bold"
                   initial={{ opacity: 0, x: 40 }}
@@ -49,7 +49,7 @@ const App = () => {
                 
                 <div className="w-full md:text-center px-10 py-5 bg-orange-200 my-4">
                   <motion.p 
-                    className="md:text-lg text-sm "
+                    className="md:text-lg text-sm font-light "
                    
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
