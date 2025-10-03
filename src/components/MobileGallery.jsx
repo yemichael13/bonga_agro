@@ -11,6 +11,7 @@ import Pic_8 from '../assets/img_8.jpeg';
 import Pic_9 from '../assets/img_9.jpeg';
 import Pic_10 from '../assets/img_10.jpeg';
 import Pic_11 from '../assets/img_11.jpeg';
+import { Link } from 'react-router-dom';
 
 
 const mobileImages = [Pic_1, Pic_2, Pic_3, Pic_4, Pic_5, Pic_6, Pic_7, Pic_8, Pic_9, Pic_10, Pic_11];
@@ -37,14 +38,16 @@ function MobileGallery() {
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
             {rowImages.map((image, index) => (
+              <Link to="/image-detail" className="w-52 h-42 object-cover rounded-xl shadow-lg bg-gray-200 flex-shrink-0 cursor-pointer">
               <img
                 key={index}
                 src={image}
                 alt={`Mobile Gallery Image`}
                 className="w-52 h-42 object-cover rounded-xl shadow-lg bg-gray-200 flex-shrink-0 cursor-pointer"
-                onClick={() => navigate('/gallery/1')}
+                
                 onError={e => { e.target.src = 'https://via.placeholder.com/150?text=Image+Not+Found'; }}
               />
+              </Link>
             ))}
           </div>
         ))}

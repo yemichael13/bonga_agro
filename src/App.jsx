@@ -319,8 +319,8 @@ const App = () => {
                         <h2 className="font-serif text-4xl my-5">Experience the Flavours of Ethiopia</h2>
                         <p className="text-lg">Explore our premium corrorima and spice products, sourced directly from Ethiopia.</p>
                       </div>
-                      <Link to={ImageDetail} className="no-underline">
-                      <button className="bg-amber-600 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-amber-600 hover:cursor-pointer border-1 border-amber-600 transform-colors duration-300">Discover our Products</button>
+                      <Link to='/image-detail'>
+                      <button className="bg-amber-600 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-amber-600 hover:cursor-pointer border-1 border-amber-600 transform-colors duration-300"> Discover our Products</button>
                       </Link>
                     </div>
                 
@@ -450,7 +450,7 @@ const App = () => {
 </motion.footer>
             </>
           } />
-          <Route path="./components/ImageDetail" element={<ImageDetail />} />
+          <Route path="/image-detail" element={<ImageDetail />} />
         </Routes>
       </div>
     </Router>

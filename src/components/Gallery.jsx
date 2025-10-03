@@ -55,31 +55,26 @@ function Gallery() {
         startLower();
     }, []);
 
-    // Helper for overlay effect
-    const renderImageWithOverlay = (image, index) => (
-       <div className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60">
-        <Link 
-            to={ImageDetail} 
-            key={index} 
-            
-        />
-            <img src={image} alt={`Marquee Image ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg transition duration-300 group-hover:opacity-60" />
-            {/* 4 shade overlays */}
-            <div className="pointer-events-none absolute inset-0 flex">
-                {/* Top shade */}
-                <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-                {/* Bottom shade */}
-                <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-                {/* Left shade */}
-                <div className="absolute top-0 left-0 h-full w-1/6 bg-gradient-to-r from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-                {/* Right shade */}
-                <div className="absolute top-0 right-0 h-full w-1/6 bg-gradient-to-l from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-            </div>
-            {/* Explore text */}
-            <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300 drop-shadow-lg">Explore</span>
-        </div>
-    );
+        // Helper for overlay effect
+        const renderImageWithOverlay = (image, index) => (
+            <Link to="/image-detail" key={index} className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60 block">
+                <img src={image} alt={`Marquee Image ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg transition duration-300 group-hover:opacity-60" />
+                {/* 4 shade overlays */}
+                <div className="pointer-events-none absolute inset-0 flex">
+                    {/* Top shade */}
+                    <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                    {/* Bottom shade */}
+                    <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                    {/* Left shade */}
+                    <div className="absolute top-0 left-0 h-full w-1/6 bg-gradient-to-r from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                    {/* Right shade */}
+                    <div className="absolute top-0 right-0 h-full w-1/6 bg-gradient-to-l from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                </div>
+                {/* Explore text */}
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300 drop-shadow-lg">Explore</span>
+            </Link>
+        );
 
     return (
         <>
