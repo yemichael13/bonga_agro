@@ -13,6 +13,8 @@ import Pic_11 from '../assets/img_11.jpeg';
 
 import { motion, useAnimation } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import ImageDetail from './ImageDetail';
 
 const upperMarquee = [Pic_1, Pic_2, Pic_3, Pic_4, Pic_5, Pic_6, Pic_7, Pic_8, Pic_9, Pic_10, Pic_11];
 const lowerMarquee = [Pic_11, Pic_10, Pic_9, Pic_8, Pic_7, Pic_6, Pic_5, Pic_4, Pic_3, Pic_2, Pic_1];
@@ -55,7 +57,12 @@ function Gallery() {
 
     // Helper for overlay effect
     const renderImageWithOverlay = (image, index) => (
-        <div key={index} className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60" onClick={() => navigate('/gallery/1')}>
+       <div className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60">
+        <Link 
+            to={ImageDetail} 
+            key={index} 
+            
+        />
             <img src={image} alt={`Marquee Image ${index + 1}`}
                 className="w-full h-full object-cover rounded-lg transition duration-300 group-hover:opacity-60" />
             {/* 4 shade overlays */}

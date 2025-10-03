@@ -11,8 +11,21 @@ import Footer from "./components/Footer";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import ImageDetail from "./components/ImageDetail";
+import { Link } from "react-router-dom"
 // Placeholder for image detail page
-const ImageDetail = () => <div className="min-h-[50vh] flex items-center justify-center text-3xl">Image Detail Page (Coming Soon)</div>;
+
+function useIsLargeScreen() {
+  const [isLarge, setIsLarge] = React.useState(window.innerWidth >= 768);
+  React.useEffect(() => {
+    function handleResize() {
+      setIsLarge(window.innerWidth >= 768);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return isLarge;
+}
 
 const App = () => {
   const [showMoreAbout, setShowMoreAbout] = React.useState(false);
@@ -22,16 +35,22 @@ const App = () => {
     const feature_1Ref = useRef(null);
     const feature_2Ref = useRef(null);
     const productsRef = useRef(null);
+    const testimonialsRef = useRef(null);
+    const footerRef = useRef(null);
     const [homeAnimKey, setHomeAnimKey] = React.useState(0);
     const [aboutAnimKey, setAboutAnimKey] = React.useState(0);
     const [feature_1AnimKey, setFeature_1AnimKey] = React.useState(0);
     const [feature_2AnimKey, setFeature_2AnimKey] = React.useState(0);
     const [productsAnimKey, setProductsAnimKey] = React.useState(0);
+    const [testimonialsAnimKey, setTestimonialsAnimKey] = React.useState(0);
+    const [footerAnimKey, setFooterAnimKey] = React.useState(0);
     const homeInView = useInView(homeRef, { amount: 0.5, triggerOnce: false });
     const aboutInView = useInView(aboutRef, { amount: 0.5, triggerOnce: false });
     const feature_1InView = useInView(feature_1Ref, { amount: 0.5, triggerOnce: false });
     const feature_2InView = useInView(feature_2Ref, { amount: 0.5, triggerOnce: false });
     const productsInView = useInView(productsRef, { amount: 0.5, triggerOnce: false });
+    const testimonialsInView = useInView(testimonialsRef, { amount: 0.5, triggerOnce: false });
+    const footerInView = useInView(footerRef, { amount: 0.5, triggerOnce: false });
   const handleSmoothScroll = (e) => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href').replace('#', '');
@@ -41,10 +60,13 @@ const App = () => {
       setMenuOpen(false);
     }
     if (targetId === "products") setProductsAnimKey((k) => k + 1);
+    if (targetId === "testinomials") setTestimonialsAnimKey((k) => k + 1);
+    if (targetId === "footer") setFooterAnimKey((k) => k + 1);
   };
+  const isLarge = useIsLargeScreen();
   return (
     <Router>
-      <div className="w-full h-auto overflow-x-hidden pt-20">
+      <div className="w-full h-auto pt-20">
         <Navbar />
         <Routes>
           <Route path="/" element={
@@ -108,16 +130,16 @@ const App = () => {
                 <motion.h1 
                   key={aboutAnimKey}
                   className="text-6xl my-4 font-serif"
-                  initial={{ opacity: 0, x: -40 }}
-                  animate={aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+                  initial={isLarge ? { opacity: 0, x: -40 } : false}
+                  animate={isLarge && aboutInView ? { opacity: 1, x: 0 } : false}
                   transition={{ duration: 3 }}
                 >
                   About Us
                 </motion.h1>
                 <div>
                   <motion.p
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={isLarge ? { opacity: 0, scale: 0.8 } : false}
+                    animate={isLarge && aboutInView ? { opacity: 1, scale: 1 } : false}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
                     Yebonga Agro PLC is a young and dynamic agribusiness company committed to harnessing Ethiopia's abundant natural resources to produce premium and sustainable agricultural products. Despite being newly established, the company is driven by a clear vision: to foster rural development, diversify export opportunities, and enhance livelihoods through modern, innovative, and inclusive farming practices.
@@ -164,8 +186,8 @@ const App = () => {
                     <motion.div
                       key={card.title + aboutAnimKey}
                       className={card.className}
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                      initial={isLarge ? { opacity: 0, y: 40 } : false}
+                      animate={isLarge && aboutInView ? { opacity: 1, y: 0 } : false}
                       transition={{ duration: 3, delay: idx * 0.5 }}
                     >
                       <h2 className="text-4xl font-serif text-center mb-4">{card.title}</h2>
@@ -175,116 +197,19 @@ const App = () => {
                 </div>
 
               </section>
-              <section id="feature_1" ref={feature_1Ref} className="w-full md:my-8 my-4">
-                <div className="w-full md:px-10 px-5 py-5 flex flex-col gap-10 md:flex-row justify-between items-center my-10">
-                  <motion.img 
-                  key={feature_1AnimKey}
-                  src={Pic_10} 
-                  alt="Bonga Agro" 
-                  className="mx-auto rounded-lg shadow-lg md:w-1/2 max-h-100vh md:hover:w-3/5 duration-300"
-                  initial={{ opacity: 0, x: -40 }}
-                  animate={feature_1InView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                  transition={{ duration: 3 }}
-                  />
-                  <div className="md:w-1/2">
-                    <div className="flex items-center gap-4">
-                      <motion.div 
-                      className="md:absolute w-0 md:w-100 h-0 border border-black rotate-90 -translate-x-1/2 -translate-y-8"
-                      animate={feature_1InView  ? { x: [0, -50, 50, 0] } // when in view → keyframe animation
-                                : { x: 0 }               // when not in view → reset position
-                              }
-                      transition={{ duration: 3 }}
-                      >
-                      </motion.div>
-                      <motion.div
-                      initial={{ opacity: 0, x: 40 }}
-                      animate={feature_1InView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-                      transition={{ duration: 3 }}
-                      >
-                        <h3 className="text-3xl font-serif my-4 ml-4">Ethiopian Korarima</h3>
-                        <p className="mb-10 ml-4">Discover the unique and aromatic Ethiopian korarima spice for your dishes.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Sustainable Sourcing</h3>
-                        <p className="mb-10 ml-4">Ethically sourced and sustainably produced spices to enhance your culinary experience.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Quality Spices</h3>
-                        <p className="mb-10 ml-4">Explore our wide range of premium spices sourced directly from Ethiopia.</p>
-                      </motion.div>
-                      
-                    </div>
-                    
-                  </div>
-                </div>
-              </section>
-              <section className="my-10">
-                <div className="w-9/10 md:h-60 mx-auto rounded-2xl my-8 bg-orange-200 border-1 border-gray-200 shadow-lg">
-                  <div className="w-full md:h-60 mx-auto rounded-2xl px-4 md:py-10 md:px-10 bg-white border-1 border-gray-200 shadow-lg hover:rotate-1 justify-center items-center duration-200">
-                    <div className="flex flex-col md:flex-row justify-between items-center py-auto gap-5 md:gap-20">
-                      <div>
-                        <h2 className="font-serif text-4xl my-5">Experience the Flavours of Ethiopia</h2>
-                        <p className="text-lg">Explore our premium corrorima and spice products, sourced directly from Ethiopia.</p>
-                      </div>
-                      <button className="bg-amber-600 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-amber-600 hover:cursor-pointer border-1 border-amber-600 transform-colors duration-300">Discover our Products</button>
-                    </div>
-                
-                  </div>
-                </div>
-                
-              </section>
-              <section 
-              id="feature_2"
-              ref={feature_2Ref}
-              className="w-full md:my-8 my-4"
-              >
-                <div className="w-full md:px-10 px-5 py-5 flex flex-col gap-10 md:flex-row justify-between items-center my-10">
-                  <div className="md:w-1/2">
-                    <div className="flex items-center gap-4">
-                      <motion.div 
-                      className="md:absolute w-0 md:w-100 h-0 border border-black rotate-90 -translate-x-1/2 -translate-y-8"
-                      animate={feature_2InView  ? { x: [0, -50, 50, 0] } // when in view → keyframe animation
-                                : { x: 0 }               // when not in view → reset position
-                              }
-                      >
-                      </motion.div>
-                      <motion.div
-                      initial={{ opacity: 0, x: -40 }}
-                      animate={feature_2InView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                      transition={{ duration: 3 }}
-                      >
-                        <h3 className="text-3xl font-serif my-4 ml-4">Premium Quality Corrorima</h3>
-                        <p className="mb-10 ml-4">We source the finest corrorima seeds and spices to ensure premium quality in every product.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Ethically Sourced Ingredients</h3>
-                        <p className="mb-10 ml-4">Our commitment to ethical sourcing practices guarantees that our products are sustainably produced.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Global Export Reach</h3>
-                        <p className="mb-10 ml-4">With a worldwide distribution network, we deliver our authentic Ethiopian spices to customers globally.</p>
-                      </motion.div>
-                      
-                    </div>
-                    
-                  </div>
-                  <motion.img 
-                  src={Pic_11} 
-                  alt="Bonga Agro" 
-                  className="mx-auto rounded-lg shadow-lg md:w-1/2 max-h-100vh md:hover:w-3/5 duration-300"
-                  key={feature_2AnimKey}
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={feature_2InView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-                  transition={{ duration: 3 }} 
-                  />
-                </div>
-              </section>
-              
               <section id="products" ref={productsRef} className="w-full my-8 pt-25 px-4 md:px-10">
                 <motion.h1
                   key={productsAnimKey}
                   className="font-serif text-6xl text-end my-4"
-                  initial={{ opacity: 0, x: 100, color: '#d97706' }}
-                  animate={productsInView ? { opacity: 1, x: 0, color: '#92400e' } : { opacity: 0, x: 100, color: '#d97706' }}
+                  initial={isLarge ? { opacity: 0, x: 100, color: '#d97706' } : false}
+                  animate={isLarge && productsInView ? { opacity: 1, x: 0, color: '#92400e' } : false}
                   transition={{ duration: 1.2 }}
                 >
                   Products
                 </motion.h1>
                 <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={productsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  initial={isLarge ? { opacity: 0, y: 30 } : false}
+                  animate={isLarge && productsInView ? { opacity: 1, y: 0 } : false}
                   transition={{ duration: 1, delay: 0.3 }}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
@@ -310,8 +235,8 @@ const App = () => {
                       <motion.div
                         key={card.title + productsAnimKey}
                         className={card.className}
-                        initial={{ opacity: 0, scale: 0.8, rotateX: 90 }}
-                        animate={productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : { opacity: 0, scale: 0.8, rotateX: 90 }}
+                        initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                        animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
                         transition={{ duration: 0.9, delay: idx * 0.3 }}
                         style={{ perspective: 800 }}
                       >
@@ -340,8 +265,8 @@ const App = () => {
                       <motion.div
                         key={card.title + productsAnimKey}
                         className={card.className}
-                        initial={{ opacity: 0, scale: 0.8, rotateX: 90 }}
-                        animate={productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : { opacity: 0, scale: 0.8, rotateX: 90 }}
+                        initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                        animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
                         transition={{ duration: 0.9, delay: idx * 0.3 }}
                         style={{ perspective: 800 }}
                       >
@@ -352,6 +277,95 @@ const App = () => {
                   </div>
                 </div>
               </section>
+              <section id="feature_1" ref={feature_1Ref} className="w-full md:my-8 my-4">
+                <div className="w-full md:px-10 px-5 py-5 flex flex-col gap-10 md:flex-row justify-between items-center my-10">
+                  <motion.img 
+                    key={feature_1AnimKey}
+                    src={Pic_10} 
+                    alt="Bonga Agro" 
+                    className="mx-auto rounded-lg shadow-lg md:w-1/2 max-h-100vh md:hover:w-3/5 duration-300"
+                    initial={isLarge ? { opacity: 0, x: -40 } : false}
+                    animate={isLarge && feature_1InView ? { opacity: 1, x: 0 } : false}
+                    transition={{ duration: 3 }}
+                  />
+                  <div className="md:w-1/2">
+                    <div className="flex items-center gap-4">
+                      <motion.div 
+                        className="md:absolute w-0 md:w-100 h-0 border border-black rotate-90 -translate-x-1/2 -translate-y-8"
+                        animate={isLarge && feature_1InView  ? { x: [0, -50, 50, 0] } : false}
+                        transition={{ duration: 3 }}
+                      />
+                      <motion.div
+                        initial={isLarge ? { opacity: 0, x: 40 } : false}
+                        animate={isLarge && feature_1InView ? { opacity: 1, x: 0 } : false}
+                        transition={{ duration: 3 }}
+                      >
+                        <h3 className="text-3xl font-serif my-4 ml-4">Ethiopian Korarima</h3>
+                        <p className="mb-10 ml-4">Discover the unique and aromatic Ethiopian korarima spice for your dishes.</p>
+                        <h3 className="text-3xl font-serif my-4 ml-4">Sustainable Sourcing</h3>
+                        <p className="mb-10 ml-4">Ethically sourced and sustainably produced spices to enhance your culinary experience.</p>
+                        <h3 className="text-3xl font-serif my-4 ml-4">Quality Spices</h3>
+                        <p className="mb-10 ml-4">Explore our wide range of premium spices sourced directly from Ethiopia.</p>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section className="my-10">
+                <div className="w-9/10 md:h-60 mx-auto rounded-2xl my-8 bg-orange-200 border-1 border-gray-200 shadow-lg">
+                  <div className="w-full md:h-60 mx-auto rounded-2xl px-4 md:py-10 md:px-10 bg-white border-1 border-gray-200 shadow-lg hover:rotate-1 justify-center items-center duration-200">
+                    <div className="flex flex-col md:flex-row justify-between items-center py-auto gap-5 md:gap-20">
+                      <div>
+                        <h2 className="font-serif text-4xl my-5">Experience the Flavours of Ethiopia</h2>
+                        <p className="text-lg">Explore our premium corrorima and spice products, sourced directly from Ethiopia.</p>
+                      </div>
+                      <Link to={ImageDetail} className="no-underline">
+                      <button className="bg-amber-600 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-amber-600 hover:cursor-pointer border-1 border-amber-600 transform-colors duration-300">Discover our Products</button>
+                      </Link>
+                    </div>
+                
+                  </div>
+                </div>
+                
+              </section>
+              <section 
+                id="feature_2"
+                ref={feature_2Ref}
+                className="w-full md:my-8 my-4"
+              >
+                <div className="w-full md:px-10 px-5 py-5 flex flex-col gap-10 md:flex-row justify-between items-center my-10">
+                  <div className="md:w-1/2">
+                    <div className="flex items-center gap-4">
+                      <motion.div 
+                        className="md:absolute w-0 md:w-100 h-0 border border-black rotate-90 -translate-x-1/2 -translate-y-8"
+                        animate={isLarge && feature_2InView  ? { x: [0, -50, 50, 0] } : false}
+                      />
+                      <motion.div
+                        initial={isLarge ? { opacity: 0, x: -40 } : false}
+                        animate={isLarge && feature_2InView ? { opacity: 1, x: 0 } : false}
+                        transition={{ duration: 3 }}
+                      >
+                        <h3 className="text-3xl font-serif my-4 ml-4">Premium Quality Corrorima</h3>
+                        <p className="mb-10 ml-4">We source the finest corrorima seeds and spices to ensure premium quality in every product.</p>
+                        <h3 className="text-3xl font-serif my-4 ml-4">Ethically Sourced Ingredients</h3>
+                        <p className="mb-10 ml-4">Our commitment to ethical sourcing practices guarantees that our products are sustainably produced.</p>
+                        <h3 className="text-3xl font-serif my-4 ml-4">Global Export Reach</h3>
+                        <p className="mb-10 ml-4">With a worldwide distribution network, we deliver our authentic Ethiopian spices to customers globally.</p>
+                      </motion.div>
+                    </div>
+                  </div>
+                  <motion.img 
+                    src={Pic_11} 
+                    alt="Bonga Agro" 
+                    className="mx-auto rounded-lg shadow-lg md:w-1/2 max-h-100vh md:hover:w-3/5 duration-300"
+                    key={feature_2AnimKey}
+                    initial={isLarge ? { opacity: 0, x: 40 } : false}
+                    animate={isLarge && feature_2InView ? { opacity: 1, x: 0 } : false}
+                    transition={{ duration: 3 }} 
+                  />
+                </div>
+              </section>
+              
               {/* Steps Section: desktop/tablet only */}
               <div className="hidden md:block mb-2">
                 <StepsSection />
@@ -360,44 +374,44 @@ const App = () => {
               <div className="block md:hidden mb-2">
                 <StepsMobile />
               </div>
-              <section id="testinomials" className="w-full mt-2 mb-8 pt-20 px-4 md:px-10">
-                <h1 className="font-serif text-6xl text-center mb-2 mt-2">Testimonials</h1>
-                <p className="text-center mb-2">Read what our clients have to say about our products.</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 my-6 md:px-30">
-                  <div className="bg-orange-200 rounded-2xl shadow-lg border-1 border-gray-200 ">
-                    <div className="py-10 px-8 bg-white rounded-2xl shadow-lg border-1 border-gray-200 hover:rotate-3 justify-center items-center duration-200">
-                      <h4 className="text-2xl font-bold">John Doe</h4>
-                      <h5 >CEO, Company ABC</h5>
-                      <p className="pt-5">We have been sourcing products from this company for years, and the quality is always top-notch. Hignly recommend!</p>
-                    </div>
-                  </div>
-                <div className="bg-orange-200 rounded-2xl shadow-lg border-1 border-gray-200 ">
-                  <div className="py-10 px-8 bg-white rounded-2xl shadow-lg border-1 border-gray-200 hover:rotate-3 justify-center items-center duration-200">
-                  <h4 className="text-2xl font-bold">Jane Smith</h4>
-                  <h5>Purchasing Manager, Company XYZ</h5>
-                  <p className="pt-5">The variety of spices offered by this company is impressive. Our customers love the unique flavours they bring to our products.</p>
+              {/* Testimonials Section */}
+              <section id="testimonials" ref={testimonialsRef} className="w-full my-8 pt-25 px-4 md:px-10">
+                <motion.h1
+                  key={testimonialsAnimKey}
+                  className="font-serif text-6xl text-center my-4"
+                  initial={isLarge ? { opacity: 0, y: -40 } : false}
+                  animate={isLarge && testimonialsInView ? { opacity: 1, y: 0 } : false}
+                  transition={{ duration: 1.2 }}
+                >
+                  Testimonials
+                </motion.h1>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6">
+                  {[{
+                    name: "Alemu T.",
+                    text: "Bonga Agro's spices are the best I've ever used! Fresh, aromatic, and ethically sourced.",
+                    className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg"
+                  }, {
+                    name: "Sara M.",
+                    text: "Their coffee and tea are simply outstanding. Highly recommend to anyone who loves authentic flavors.",
+                    className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg"
+                  }, {
+                    name: "John D.",
+                    text: "Impressed by their commitment to sustainability and quality. Will buy again!",
+                    className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-orange-200 rounded-lg shadow-lg"
+                  }].map((testimonial, idx) => (
+                    <motion.div
+                      key={testimonial.name + testimonialsAnimKey}
+                      className={testimonial.className}
+                      initial={isLarge ? { opacity: 0, scale: 0.8, y: 40 } : false}
+                      animate={isLarge && testimonialsInView ? { opacity: 1, scale: 1, y: 0 } : false}
+                      transition={{ duration: 0.9, delay: idx * 0.3 }}
+                      whileHover={isLarge ? { scale: 1.05 } : false}
+                    >
+                      <h3 className="font-serif text-2xl text-center mb-2">{testimonial.name}</h3>
+                      <p className="text-amber-600 text-center">{testimonial.text}</p>
+                    </motion.div>
+                  ))}
                 </div>
-                </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 md:px-30 gap-12 my-6">
-                  <div className="bg-orange-200 rounded-2xl shadow-lg border-1 border-gray-200 ">
-                    <div className="py-10 px-8 bg-white rounded-2xl shadow-lg border-1 border-gray-200 hover:rotate-3 justify-center items-center duration-200">
-                      <h4 className="text-2xl font-bold">Michael Johnson</h4>
-                      <h5>Chef, Restourant LMN</h5>
-                      <p className="pt-5">Using these spices has elevated the taste of our dishes to a whole new level. Thank you for the exceptional products!</p>
-                    </div>
-                  </div>
-                <div className="bg-orange-200 rounded-2xl shadow-lg border-1 border-gray-200 ">
-                  <div className="py-10 px-8 bg-white rounded-2xl shadow-lg border-1 border-gray-200 hover:rotate-3 justify-center items-center duration-200">
-                  <h4 className="text-2xl font-bold">Sarah Lee</h4>
-                  <h5>Food Blogger</h5>
-                  <p className="pt-5">I love experimenting with different spices in my recipes, and this company never disappoints. The freshness and aroma are unmatched.</p>
-                </div>
-                </div>
-                </div>
-                
-                
               </section>
               <section id="contact" className="w-full my-8 pt-25 px-4 md:px-10">
                 <h1 className="font-serif text-6xl text-center my-4">Contact Us</h1>
@@ -425,10 +439,18 @@ const App = () => {
         </div>
               </section>
               
-            <Footer />
+            <motion.footer
+  ref={footerRef}
+  className="w-full py-8 bg-amber-700 text-white text-center mt-10"
+  initial={isLarge ? { opacity: 0, y: 40 } : false}
+  animate={isLarge && footerInView ? { opacity: 1, y: 0 } : false}
+  transition={{ duration: 1.2 }}
+>
+  <Footer />
+</motion.footer>
             </>
           } />
-          <Route path="/gallery/:imageId" element={<ImageDetail />} />
+          <Route path="./components/ImageDetail" element={<ImageDetail />} />
         </Routes>
       </div>
     </Router>
