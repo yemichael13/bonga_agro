@@ -13,6 +13,8 @@ import Pic_11 from '../assets/img_11.jpeg';
 
 import { motion, useAnimation } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import ImageDetail from './ImageDetail';
 
 const upperMarquee = [Pic_1, Pic_2, Pic_3, Pic_4, Pic_5, Pic_6, Pic_7, Pic_8, Pic_9, Pic_10, Pic_11];
 const lowerMarquee = [Pic_11, Pic_10, Pic_9, Pic_8, Pic_7, Pic_6, Pic_5, Pic_4, Pic_3, Pic_2, Pic_1];
@@ -53,26 +55,26 @@ function Gallery() {
         startLower();
     }, []);
 
-    // Helper for overlay effect
-    const renderImageWithOverlay = (image, index) => (
-        <div key={index} className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60" onClick={() => navigate('/gallery/1')}>
-            <img src={image} alt={`Marquee Image ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg transition duration-300 group-hover:opacity-60" />
-            {/* 4 shade overlays */}
-            <div className="pointer-events-none absolute inset-0 flex">
-                {/* Top shade */}
-                <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-                {/* Bottom shade */}
-                <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-                {/* Left shade */}
-                <div className="absolute top-0 left-0 h-full w-1/6 bg-gradient-to-r from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-                {/* Right shade */}
-                <div className="absolute top-0 right-0 h-full w-1/6 bg-gradient-to-l from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
-            </div>
-            {/* Explore text */}
-            <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300 drop-shadow-lg">Explore</span>
-        </div>
-    );
+        // Helper for overlay effect
+        const renderImageWithOverlay = (image, index) => (
+            <Link to="/image-detail" key={index} className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60 block">
+                <img src={image} alt={`Marquee Image ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg transition duration-300 group-hover:opacity-60" />
+                {/* 4 shade overlays */}
+                <div className="pointer-events-none absolute inset-0 flex">
+                    {/* Top shade */}
+                    <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                    {/* Bottom shade */}
+                    <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                    {/* Left shade */}
+                    <div className="absolute top-0 left-0 h-full w-1/6 bg-gradient-to-r from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                    {/* Right shade */}
+                    <div className="absolute top-0 right-0 h-full w-1/6 bg-gradient-to-l from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+                </div>
+                {/* Explore text */}
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300 drop-shadow-lg">Explore</span>
+            </Link>
+        );
 
     return (
         <>
