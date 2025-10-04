@@ -198,7 +198,7 @@ export default function ProductDetail() {
       </div>
       <a href="/" className="flex justify-center">
         <button className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-amber-700 duration-300 border-1 border-amber-700 cursor-pointer mb-10">
-          Back to HOME
+          Back to Home
         </button>
       </a>  
     </div>
