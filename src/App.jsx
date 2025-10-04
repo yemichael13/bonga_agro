@@ -1,17 +1,22 @@
-import React from "react";
+import React, {useMemo} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Gallery from "./components/Gallery";
 import MobileGallery from "./components/MobileGallery";
 import Pic_10 from "./assets/img_10.jpeg";
 import Pic_11 from "./assets/img_11.jpeg";
+import Pic_4 from "./assets/img_4.jpeg";
+import Pic_1 from "./assets/img_1.jpeg";
+import Pic_2 from "./assets/img_2.jpeg";
+import Pic_6 from "./assets/img_6.jpeg";
+import Pic_7 from "./assets/img_7.jpeg";
 import StepsSection from "./components/StepsSection";
 import StepsMobile from "./components/StepsMobile";
 import Footer from "./components/Footer";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import ImageDetail from "./components/ImageDetail";
+import ImageDetail from "./components/ProductDetail";
 import { Link } from "react-router-dom"
 // Placeholder for image detail page
 
@@ -64,6 +69,8 @@ const App = () => {
     if (targetId === "footer") setFooterAnimKey((k) => k + 1);
   };
   const isLarge = useIsLargeScreen();
+  const images = [Pic_1, Pic_2, Pic_4, Pic_6, Pic_7];
+  const randomImage = useMemo(() => images[Math.floor(Math.random() * images.length)], [images]);
   return (
     <Router>
       <div className="w-full h-auto pt-20">
@@ -71,7 +78,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={
             <>
-              <section id="home" ref={homeRef} className="flex flex-col items-center justify-center bg-white">
+              <section id="home" ref={homeRef}  className="flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat min-h-[80vh]">
                 <motion.h1
                   key={homeAnimKey}
                   className="md:text-9xl text-8xl px-2 my-10 font-bold"
@@ -79,6 +86,7 @@ const App = () => {
                   animate={homeInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                   transition={{ duration: 2 }}
                 >
+                  
                   Yebonga Agro PLC
                 </motion.h1>
                 <motion.h3

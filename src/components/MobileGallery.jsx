@@ -11,10 +11,16 @@ import Pic_8 from '../assets/img_8.jpeg';
 import Pic_9 from '../assets/img_9.jpeg';
 import Pic_10 from '../assets/img_10.jpeg';
 import Pic_11 from '../assets/img_11.jpeg';
+import Korarima from '../assets/korarima.jpg';
+import Ginger from '../assets/ginger.jpg';
+import Honey from '../assets/honey.png';
+import Coffee from '../assets/coffee-tea.jpg';
+import Dairy from '../assets/dairy.jpg';
+
 import { Link } from 'react-router-dom';
 
 
-const mobileImages = [Pic_1, Pic_2, Pic_3, Pic_4, Pic_5, Pic_6, Pic_7, Pic_8, Pic_9, Pic_10, Pic_11];
+const mobileImages = [Pic_1, Pic_2, Korarima, Pic_3, Pic_4, Ginger, Pic_5, Pic_6, Honey, Pic_7, Pic_8, Coffee, Pic_9, Pic_10, Dairy, Pic_11];
 
 
 function MobileGallery() {
