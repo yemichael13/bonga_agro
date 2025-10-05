@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Logo from "../assets/logo.png";
+import FAQ from "./FAQ";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -42,7 +44,6 @@ const Navbar = () => {
           <ion-icon name="close-outline" size="large" onClick={() => setMenuOpen(false)} className="cursor-pointer mr-4"></ion-icon>
         )}
       </div>
-      {/* Menu */}
       <div className={`absolute md:static mb-4 bg-white md:min-h-fit min-h-[20vh]  md:border-none md:shadow-none  left-0 top-20 w-full md:w-auto px-5 transition-all duration-300 ${menuOpen ? 'block' : 'hidden'} md:flex md:items-center md:justify-end`}>
         <ul className="flex md:flex-row flex-col justify-center items-center md:gap-8 gap-8 px-4 py-2 text-sm md:mx-4">
           {[
@@ -50,7 +51,8 @@ const Navbar = () => {
             { label: "About Us", href: "#about-us" },
             { label: "Produts/Services", href: "#products" },
             { label: "Testinomials", href: "#testinomials" },
-            { label: "Contact", href: "#contact" }
+            { label: "Contact", href: "#contact" },
+            { label: "FAQ", href: "/faq", isLink: true }
           ].map((item, idx) => (
             <motion.li
               key={item.label}
@@ -58,10 +60,17 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: idx * 0.5 }}
             >
-              <a href={item.href} onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
-                {item.label}
-                <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
-              </a>
+              {item.isLink ? (
+                <Link to={item.href} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
+                  {item.label}
+                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+                </Link>
+              ) : (
+                <a href={item.href} onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
+                  {item.label}
+                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+                </a>
+              )}
             </motion.li>
           ))}
         </ul>

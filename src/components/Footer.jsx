@@ -49,6 +49,10 @@ const Footer = () => {
             Contact
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
+          <li><a href="/faq" className="relative group px-3 py-1 transition-colors  rounded-xl ">
+            FAQ
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+          </a></li>
             </ul>
         </div>
         <div className='flex flex-col justify-center items-center gap-8 md:w-1/2 border-r border-r-white' >

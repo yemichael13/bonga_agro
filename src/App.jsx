@@ -18,6 +18,7 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import ImageDetail from "./components/ProductDetail";
 import { Link } from "react-router-dom"
+import FAQ from "./components/FAQ";
 // Placeholder for image detail page
 
 function useIsLargeScreen() {
@@ -459,6 +460,7 @@ const App = () => {
             </>
           } />
           <Route path="/image-detail" element={<ImageDetail />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </div>
     </Router>
