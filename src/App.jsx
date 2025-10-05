@@ -226,8 +226,8 @@ const App = () => {
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6 ">
                     {[{
-                      title: "Corrorima (Ethiopian Cardamom)",
-                      desc: "Premium-quality corrorima (Ethiopian cardamom), grown naturally in fertile Ethiopian soil, available for both local markets and international export.",
+                      title: "Korarima (Ethiopian Cardamom)",
+                      desc: "Premium-quality Korarima (Ethiopian cardamom), grown naturally in fertile Ethiopian soil, available for both local markets and international export.",
                       className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
                       color: '#d97706'
                     }, {
@@ -261,13 +261,13 @@ const App = () => {
                       className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-orange-200 rounded-lg shadow-lg",
                       color: '#92400e'
                     }, {
-                      title: "Ginger Production",
-                      desc: "Fresh and dried Ethiopian ginger, carefully cultivated and processed to preserve flavor and aroma, supplied for food, beverage, and medicinal uses.",
+                      title: "Organic Forest Honey",
+                      desc: "Yebonga Agro’s organic honey is collected from forest and highland apiaries where bees forage on diverse native flora. The result is a rich, flavorful, and chemical-free honey known for its purity and health benefits.",
                       className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
                       color: '#ea580c'
                     }, {
-                      title: "Coffee & Tea",
-                      desc: "Ethiopian coffee and tea, hand-picked and processed with care, offering authentic taste experiences cherished around the world.",
+                      title: "Dairy Products",
+                      desc: "Yebonga Agro’s dairy products are produced from fresh, high-quality milk collected from local farms. The line includes milk, yogurt, and traditional Ethiopian butter (kibe), processed with modern hygiene standards.",
                       className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
                       color: '#d97706'
                     }].map((card, idx) => (
