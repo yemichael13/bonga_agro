@@ -91,13 +91,13 @@ const App = () => {
                   Yebonga Agro PLC
                 </motion.h1>
                 <motion.h3
-                  className="md:text-5xl px-2 text-4xl my-5 text-center font-serif text-amber-700"
+                  className="md:text-5xl px-2 text-4xl my-5 text-center font-serif text-blue-500"
                   animate={{ x: [0, -30, 30, 0] }}
                   transition={{ duration: 4, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
                 >
                   "Bringing Ethiopia's Unique Flavours To The World"
                 </motion.h3>
-                <div className="w-full md:text-center px-10 py-5 bg-orange-200 my-4">
+                <div className="w-full md:text-center px-10 py-5 bg-blue-100 my-4">
                   <motion.p 
                     className="md:text-lg text-sm font-light "
                     initial={{ opacity: 0, y: 40 }}
@@ -115,7 +115,7 @@ const App = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    <button className="bg-amber-700 text-white font-bold px-6 py-3 border-2 border-amber-700 rounded-full text-xl hover:cursor-pointer hover:bg-white hover:text-amber-700  transition-colors duration-300">Get In Touch</button>
+                    <button className="bg-blue-400 text-white font-bold px-6 py-3 border-2 border-blue-400 rounded-full text-xl hover:cursor-pointer hover:bg-white hover:text-blue-400  transition-colors duration-300">Get In Touch</button>
                   </motion.a>
                   <motion.a
                     href="#footer"
@@ -124,7 +124,7 @@ const App = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
                   >
-                    <button className="bg-white text-amber-700 border-2 font-bold border-amber-700 px-6 py-3 rounded-full text-xl ml-4 hover:cursor-pointer hover:bg-amber-700 hover:text-white transition-colors duration-300">Subscribe to Newsletter</button>
+                    <button className="bg-white text-blue-400 border-2 font-bold border-blue-400 px-6 py-3 rounded-full text-xl ml-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white transition-colors duration-300">Subscribe to Newsletter</button>
                   </motion.a>
                 </div>
               </section>
@@ -154,7 +154,7 @@ const App = () => {
                     Yebonga Agro PLC is a young and dynamic agribusiness company committed to harnessing Ethiopia's abundant natural resources to produce premium and sustainable agricultural products. Despite being newly established, the company is driven by a clear vision: to foster rural development, diversify export opportunities, and enhance livelihoods through modern, innovative, and inclusive farming practices.
                   </motion.p>
                   <span
-                    className="text-amber-600 cursor-pointer ml-2 underline"
+                    className="text-blue-400 cursor-pointer ml-2 underline"
                     onClick={() => setShowMoreAbout(true)}
                   >
                     Read More
@@ -168,7 +168,7 @@ const App = () => {
                           <span className="block mt-2 md:text-2xl text-lg font-semibold ">Background</span>
                           <span className="block text-gray-700 md:text-lg text-sm py-2 font-light">The company is a share company and established with a total capital of 10 million Eth Birr. With a strong commitment to quality, sustainability, and inclusiveness, Yebonga Agro PLC Company aims to be a trusted brand in Ethiopia and beyond. The company has identified the forest areas of Kaffa Zone, South-Western Ethiopia region as a suitable site for cultivating and processing high-value spices, including <span className="text-amber-700">false cardamom (Aframomum corrorima)</span>, a unique Ethiopian spice with growing demand in both domestic and international markets. Yebonga Agro PLC also plans to establish apiaries in forest and highland areas to produce <span className="text-amber-600">pure, organic honey</span>, leveraging Ethiopia's global reputation as a source of natural honey varieties. The company's honey production will emphasize sustainability, biodiversity conservation, and quality standards for export. The company produces quality products at its own land and collects products from the local farmers and cooperatives after giving practical training about production of good quality products and proper post-harvest management.</span>
                           <span
-                            className="text-amber-600 cursor-pointer ml-2 underline block mt-2"
+                            className="text-blue-400 cursor-pointer ml-2 underline block mt-2"
                             onClick={() => setShowMoreAbout(false)}
                           >
                             Show Less
@@ -182,15 +182,15 @@ const App = () => {
                   {[{
                     title: "Vision",
                     desc: "To lead Africa in the production and processing of organic spices, coffee, dairy, and honey, setting the standard for quality, sustainability, and innovation while delivering premium products to local and international consumers.",
-                    className: "mb-6 md:mb-0 py-10 border-1 border-amber-700 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2"
+                    className: "mb-6 md:mb-0 py-10 border-1 border-blue-400 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2"
                   }, {
                     title: "Mission",
                     desc: "To sustainably produce and process premium organic spices, coffee, dairy, and honey by empowering local communities, preserving forests and biodiversity, adopting innovative practices, and delivering high-quality, ethically-sourced products to local and international markets",
-                    className: "mb-6 md:mb-0 py-10 border-1 border-amber-700 bg-orange-200 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2"
+                    className: "mb-6 md:mb-0 py-10 border-1 border-blue-400 bg-blue-100 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2"
                   }, {
                     title: "Core Values",
                     desc: "Quality Excellence <br />Sustainability<br />Innovation and Growth<br />Integrity and Transparency<br />Inclusiveness<br />Partnership and Collaboration<br />Customer-Centric Approach",
-                    className: "mb-6 md:mb-0 py-10 border-1 text-center border-amber-700 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2"
+                    className: "mb-6 md:mb-0 py-10 border-1 text-center border-blue-400 p-4 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2"
                   }].map((card, idx) => (
                     <motion.div
                       key={card.title + aboutAnimKey}
@@ -210,8 +210,8 @@ const App = () => {
                 <motion.h1
                   key={productsAnimKey}
                   className="font-serif text-6xl text-end my-4"
-                  initial={isLarge ? { opacity: 0, x: 100, color: '#d97706' } : false}
-                  animate={isLarge && productsInView ? { opacity: 1, x: 0, color: '#92400e' } : false}
+                  initial={isLarge ? { opacity: 0, x: 100 } : false}
+                  animate={isLarge && productsInView ? { opacity: 1, x: 0 } : false}
                   transition={{ duration: 1.2 }}
                 >
                   Products
@@ -221,25 +221,26 @@ const App = () => {
                   animate={isLarge && productsInView ? { opacity: 1, y: 0 } : false}
                   transition={{ duration: 1, delay: 0.3 }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                  Premium Ethiopian agricultural products crafted with sustainability, quality, and authenticity at their core.
+From spice farms to global markets — nature’s best, responsibly delivered.
                 </motion.p>
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6 ">
                     {[{
-                      title: "Korarima (Ethiopian Cardamom)",
-                      desc: "Premium-quality Korarima (Ethiopian cardamom), grown naturally in fertile Ethiopian soil, available for both local markets and international export.",
-                      className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
-                      color: '#d97706'
+                      title: "Korerima (Ethiopian Cardamom)",
+                      desc: "Premium-quality Korerima (Ethiopian cardamom), grown naturally in fertile Ethiopian soil, available for both local markets and international export.",
+                      className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-white rounded-lg shadow-lg",
+                      color: '#00aeff'
                     }, {
                       title: "Ginger Production",
                       desc: "Fresh and dried Ethiopian ginger, carefully cultivated and processed to preserve flavor and aroma, supplied for food, beverage, and medicinal uses.",
-                      className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
-                      color: '#ea580c'
+                      className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-white rounded-lg shadow-lg",
+                      color: '#00aeff'
                     }, {
                       title: "Coffee & Tea",
                       desc: "Ethiopian coffee and tea, hand-picked and processed with care, offering authentic taste experiences cherished around the world.",
-                      className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-orange-200  rounded-lg shadow-lg",
-                      color: '#92400e'
+                      className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-blue-100  rounded-lg shadow-lg",
+                      color: '#00aeff'
                     }].map((card, idx) => (
                       <motion.div
                         key={card.title + productsAnimKey}
@@ -250,7 +251,7 @@ const App = () => {
                         style={{ perspective: 800 }}
                       >
                         <h3 className="font-serif text-3xl text-center mb-4" style={{ color: card.color }}>{card.title}</h3>
-                        <p className="text-amber-600">{card.desc}</p>
+                        <p className="text-blue-400">{card.desc}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -258,18 +259,18 @@ const App = () => {
                     {[{
                       title: "Export & Local Distribution",
                       desc: "Efficient supply chain for delivering spices to local markets and exporting worldwide with full compliance to quality and trade standards.",
-                      className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-orange-200 rounded-lg shadow-lg",
-                      color: '#92400e'
+                      className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-blue-100 rounded-lg shadow-lg",
+                      color: '#00aeff'
                     }, {
                       title: "Organic Forest Honey",
                       desc: "Yebonga Agro’s organic honey is collected from forest and highland apiaries where bees forage on diverse native flora. The result is a rich, flavorful, and chemical-free honey known for its purity and health benefits.",
-                      className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
-                      color: '#ea580c'
+                      className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-white rounded-lg shadow-lg ",
+                      color: '#00aeff'
                     }, {
                       title: "Dairy Products",
                       desc: "Yebonga Agro’s dairy products are produced from fresh, high-quality milk collected from local farms. The line includes milk, yogurt, and traditional Ethiopian butter (kibe), processed with modern hygiene standards.",
-                      className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg",
-                      color: '#d97706'
+                      className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-white rounded-lg shadow-lg",
+                      color: '#00aeff'
                     }].map((card, idx) => (
                       <motion.div
                         key={card.title + productsAnimKey}
@@ -280,7 +281,7 @@ const App = () => {
                         style={{ perspective: 800 }}
                       >
                         <h3 className="font-serif text-3xl text-center mb-4" style={{ color: card.color }}>{card.title}</h3>
-                        <p className="text-amber-600">{card.desc}</p>
+                        <p className="text-blue-400">{card.desc}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -309,8 +310,8 @@ const App = () => {
                         animate={isLarge && feature_1InView ? { opacity: 1, x: 0 } : false}
                         transition={{ duration: 3 }}
                       >
-                        <h3 className="text-3xl font-serif my-4 ml-4">Ethiopian Korarima</h3>
-                        <p className="mb-10 ml-4">Discover the unique and aromatic Ethiopian korarima spice for your dishes.</p>
+                        <h3 className="text-3xl font-serif my-4 ml-4">Ethiopian Korerima</h3>
+                        <p className="mb-10 ml-4">Discover the unique and aromatic Ethiopian korerima spice for your dishes.</p>
                         <h3 className="text-3xl font-serif my-4 ml-4">Sustainable Sourcing</h3>
                         <p className="mb-10 ml-4">Ethically sourced and sustainably produced spices to enhance your culinary experience.</p>
                         <h3 className="text-3xl font-serif my-4 ml-4">Quality Spices</h3>
@@ -321,15 +322,15 @@ const App = () => {
                 </div>
               </section>
               <section className="my-10">
-                <div className="w-9/10 md:h-60 mx-auto rounded-2xl my-8 bg-orange-200 border-1 border-gray-200 shadow-lg">
+                <div className="w-9/10 md:h-60 mx-auto rounded-2xl my-8 bg-blue-100 border-1 border-gray-200 shadow-lg">
                   <div className="w-full md:h-60 mx-auto rounded-2xl px-4 md:py-10 md:px-10 bg-white border-1 border-gray-200 shadow-lg hover:rotate-1 justify-center items-center duration-200">
                     <div className="flex flex-col md:flex-row justify-between items-center py-auto gap-5 md:gap-20">
                       <div>
                         <h2 className="font-serif text-4xl my-5">Experience the Flavours of Ethiopia</h2>
-                        <p className="text-lg">Explore our premium corrorima and spice products, sourced directly from Ethiopia.</p>
+                        <p className="text-lg">Explore our premium korerima and spice products, sourced directly from Ethiopia.</p>
                       </div>
                       <Link to='/image-detail'>
-                      <button className="bg-amber-600 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-amber-600 hover:cursor-pointer border-1 border-amber-600 transform-colors duration-300"> Discover our Products</button>
+                      <button className="bg-blue-400 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-blue-400 hover:cursor-pointer border-1 border-blue-400 transform-colors duration-300"> Discover our Products</button>
                       </Link>
                     </div>
                 
@@ -354,8 +355,8 @@ const App = () => {
                         animate={isLarge && feature_2InView ? { opacity: 1, x: 0 } : false}
                         transition={{ duration: 3 }}
                       >
-                        <h3 className="text-3xl font-serif my-4 ml-4">Premium Quality Corrorima</h3>
-                        <p className="mb-10 ml-4">We source the finest corrorima seeds and spices to ensure premium quality in every product.</p>
+                        <h3 className="text-3xl font-serif my-4 ml-4">Premium Quality Korerima</h3>
+                        <p className="mb-10 ml-4">We source the finest korerima seeds and spices to ensure premium quality in every product.</p>
                         <h3 className="text-3xl font-serif my-4 ml-4">Ethically Sourced Ingredients</h3>
                         <p className="mb-10 ml-4">Our commitment to ethical sourcing practices guarantees that our products are sustainably produced.</p>
                         <h3 className="text-3xl font-serif my-4 ml-4">Global Export Reach</h3>
@@ -398,15 +399,15 @@ const App = () => {
                   {[{
                     name: "Alemu T.",
                     text: "Bonga Agro's spices are the best I've ever used! Fresh, aromatic, and ethically sourced.",
-                    className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg"
+                    className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-white rounded-lg shadow-lg"
                   }, {
                     name: "Sara M.",
                     text: "Their coffee and tea are simply outstanding. Highly recommend to anyone who loves authentic flavors.",
-                    className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-white rounded-lg shadow-lg"
+                    className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-white rounded-lg shadow-lg"
                   }, {
                     name: "John D.",
                     text: "Impressed by their commitment to sustainability and quality. Will buy again!",
-                    className: "px-2 md:py-8 py-4 border-1 border-amber-700 bg-orange-200 rounded-lg shadow-lg"
+                    className: "px-2 md:py-8 py-4 border-1 border-blue-400 bg-blue-100 rounded-lg shadow-lg"
                   }].map((testimonial, idx) => (
                     <motion.div
                       key={testimonial.name + testimonialsAnimKey}
@@ -417,7 +418,7 @@ const App = () => {
                       whileHover={isLarge ? { scale: 1.05 } : false}
                     >
                       <h3 className="font-serif text-2xl text-center mb-2">{testimonial.name}</h3>
-                      <p className="text-amber-600 text-center">{testimonial.text}</p>
+                      <p className="text-blue-400 text-center">{testimonial.text}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -430,7 +431,7 @@ const App = () => {
               <ion-icon name="call-outline" size="large"></ion-icon>
               <h2 className="text-4xl font-bold">Call</h2>
               <p className="my-5">For urgent matters, please call us directly.</p>
-              <h5 className="text-sm font-light">+251-XXX-XXX-XXX</h5>
+              <h5 className="text-sm font-light">+251-911-258-379</h5>
             </div>
             <div className="flex flex-col items-center gap-2 bg-white p-8 rounded-lg ">
               <ion-icon name="mail-outline" size="large"></ion-icon>
@@ -450,7 +451,7 @@ const App = () => {
               
             <motion.footer
   ref={footerRef}
-  className="w-full py-8 bg-amber-700 text-white text-center mt-10"
+  className="w-full py-8 bg-blue-400 text-white text-center mt-10"
   initial={isLarge ? { opacity: 0, y: 40 } : false}
   animate={isLarge && footerInView ? { opacity: 1, y: 0 } : false}
   transition={{ duration: 1.2 }}

@@ -61,14 +61,14 @@ const Navbar = () => {
               transition={{ duration: 2, delay: idx * 0.5 }}
             >
               {item.isLink ? (
-                <Link to={item.href} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
+                <Link to={item.href} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-blue-400">
                   {item.label}
-                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
                 </Link>
               ) : (
-                <a href={item.href} onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-amber-700">
+                <a href={item.href} onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors duration-200 rounded-xl hover:text-blue-400">
                   {item.label}
-                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
                 </a>
               )}
             </motion.li>

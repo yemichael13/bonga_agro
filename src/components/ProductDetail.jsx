@@ -10,12 +10,12 @@ import { Link } from 'react-router-dom';
 
 const products = [
   {
-    title: "Korarima (Ethiopian Cardamom)",
+    title: "Korerima (Ethiopian Cardamom)",
     img: Korarima,
     scientific: "Aframomum corrorima",
     origin: "Kaffa Zone, South-Western Ethiopia",
     description:
-      "Korarima, also known as Ethiopian cardamom, is a rare spice native to Ethiopia’s lush highlands. Cultivated in forest areas using natural and sustainable practices, it offers a warm, aromatic flavor similar to true cardamom but with a distinctly Ethiopian character.",
+      "Korerima, also known as Ethiopian cardamom, is a rare spice native to Ethiopia’s lush highlands. Cultivated in forest areas using natural and sustainable practices, it offers a warm, aromatic flavor similar to true cardamom but with a distinctly Ethiopian character.",
     processing: [
       "Harvested by trained local farmers",
       "Naturally sun-dried and cleaned to preserve essential oils",
@@ -129,7 +129,7 @@ export default function ProductDetail() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center text-5xl md:text-6xl font-serif font-bold text-amber-700 mb-10"
+        className="text-center text-5xl md:text-6xl font-serif font-bold text-blue-500 mb-10"
       >
         Our Products
       </motion.h1>
@@ -155,7 +155,7 @@ export default function ProductDetail() {
               transition={{ duration: 0.3 }}
             />
             <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-serif font-semibold text-amber-700 mb-2">
+              <h2 className="text-3xl md:text-4xl font-serif font-semibold text-blue-400 mb-2">
                 {product.title}
               </h2>
               {product.scientific && (
@@ -171,21 +171,21 @@ export default function ProductDetail() {
               </p>
 
               <div className="space-y-3">
-                <p className="font-semibold text-amber-700">Processing & Quality:</p>
+                <p className="font-semibold text-blue-400">Processing & Quality:</p>
                 <ul className="list-disc list-inside text-gray-700">
                   {product.processing.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
 
-                <p className="font-semibold text-amber-700 mt-4">Uses:</p>
+                <p className="font-semibold text-blue-400 mt-4">Uses:</p>
                 <ul className="list-disc list-inside text-gray-700">
                   {product.uses.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
 
-                <p className="font-semibold text-amber-700 mt-4">Key Benefits:</p>
+                <p className="font-semibold text-blue-400 mt-4">Key Benefits:</p>
                 <ul className="list-disc list-inside text-gray-700">
                   {product.benefits.map((item, i) => (
                     <li key={i}>{item}</li>
@@ -197,7 +197,7 @@ export default function ProductDetail() {
         ))}
       </div>
       <a href="/" className="flex justify-center">
-        <button className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-amber-700 duration-300 border-1 border-amber-700 cursor-pointer mb-10">
+        <button className="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-blue-400 duration-300 border-1 border-blue-400 cursor-pointer mb-10">
           Back to Home
         </button>
       </a>  

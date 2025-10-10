@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 
 const steps = [
   {
-    title: "Quality Corrorima and Spices",
-    desc: "We source the finest corrorima and spices from Ethiopia, known for their exceptional quality and rich flavors.",
+    title: "Quality Korerima and Spices",
+    desc: "We source the finest korerima and spices from Ethiopia, known for their exceptional quality and rich flavors.",
     bg: "bg-white",
     rotate: "rotate-[-2deg]"
   },
   {
     title: "Expert Production Process",
-    desc: "Our state-of-the-art facilities ensure that our corrorima and spices are processed and packaged with the highest standards of hygiene and quality control.",
-    bg: "bg-amber-100",
+    desc: "Our state-of-the-art facilities ensure that our korerima and spices are processed and packaged with the highest standards of hygiene and quality control.",
+    bg: "bg-blue-100",
     rotate: "rotate-[3deg]"
   },
   {
@@ -23,7 +23,7 @@ const steps = [
   {
     title: "Customer Satisfaction Guaranteed",
     desc: "We are committed to providing our customers with top-notch products and excellent service, ensuring their satisfaction with every purchase.",
-    bg: "bg-amber-100",
+    bg: "bg-blue-100",
     rotate: "rotate-[3deg]"
   }
 ];
@@ -79,7 +79,7 @@ const StepsSection = () => {
         </p>
         {!showMore && (
           <button
-            className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-amber-700 duration-300 border-1 border-amber-700 cursor-pointer"
+            className="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-blue-400 duration-300 border-1 border-blue-400 cursor-pointer"
             onClick={() => setShowMore(true)}
           >
             Read More
@@ -91,7 +91,7 @@ const StepsSection = () => {
           <div className={`${showMore ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'} transition-all duration-500`}>
             {showMore && (
               <>
-                <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Spices</span> – Grown in the fertile forest areas of Keficho Zone, our spices, including <span className="font-semibold text-amber-600">false cardamom (korarima)</span>, are cultivated using natural and sustainable methods. Careful harvesting, proper drying, and hygienic processing ensure superior aroma, flavor, and purity.</span>
+                <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Spices</span> – Grown in the fertile forest areas of Keficho Zone, our spices, including <span className="font-semibold text-amber-600">false cardamom (korerima)</span>, are cultivated using natural and sustainable methods. Careful harvesting, proper drying, and hygienic processing ensure superior aroma, flavor, and purity.</span>
                 <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Organic Honey</span> – Our honey is sourced from forest and highland areas, free from chemicals and antibiotics. We follow organic beekeeping practices that guarantee <span className="font-semibold text-amber-600">100% natural honey</span> with high nutritional value and traceability.</span>
                 <span className="block text-gray-700 text-lg py-2 font-light"><span className="font-semibold">Dairy Products</span> – Yebonga Agro PLC’s dairy line emphasizes <span className="font-semibold text-amber-600">freshness, hygiene, and nutrition.</span> From milk collection to processing and packaging, strict quality control systems are applied to meet food safety standards.</span>
                 <span className="block mt-2 text-lg font-semibold ">To maintain and assure quality, we:</span>
@@ -100,7 +100,7 @@ const StepsSection = () => {
                 <span className="block mt-2 text-lg font-light py-2 text-gray-700">Apply rigorous quality control checks at every stage of production and supply.</span>
                 <span className="block mt-2 text-lg font-light py-2 text-gray-700">Strive for certifications (organic, fair trade, or export standards) to meet both local and global market requirements.</span>
                 <button
-                  className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-amber-700 duration-300 mt-4 border-1 border-amber-700 cursor-pointer"
+                  className="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-blue-400 duration-300 mt-4 border-1 border-blue-400 cursor-pointer"
                   onClick={() => setShowMore(false)}
                 >
                   Show Less

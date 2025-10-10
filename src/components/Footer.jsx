@@ -22,7 +22,7 @@ const Footer = () => {
               <h5>Subscribe to our newsletter for the latest updates on new features and product releases.</h5>
               <div className='flex flex-row mt-4'>
                 <input type="email" placeholder='Enter your email' className='border-1 bg-white border-gray-500 rounded-l-full p-2 w-2/3 outline-none text-black text-center'/>
-                <button className='bg-amber-500 text-center text-white font-semibold px-2 md:px-6 py-2 border-1 w-1/3 border-amber-700 rounded-r-full hover:bg-white cursor-pointer hover:text-amber-700 duration-300'>Subscribe</button>
+                <button className='bg-blue-500 text-center text-white font-semibold px-2 md:px-6 py-2 border-1 w-1/3 border-blue-700 rounded-r-full hover:bg-white cursor-pointer hover:text-blue-400 duration-300'>Subscribe</button>
               </div>
             </div>
         </div>
@@ -31,27 +31,27 @@ const Footer = () => {
             <ul className='flex flex-col justify-center items-center gap-8 px-4 py-2 text-sm md:mx-4'>
                 <li><a href="#home" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
             Home
-            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
           <li><a href="#about-us" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
             About Us
-            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
           <li><a href="#products" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
             Produts/Services
-            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
           <li><a href="#testinomials" onClick={handleSmoothScroll} className="relative group px-3 py-1  rounded-xl ">
             Testinomials
-            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
           <li><a href="#contact" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
             Contact
-            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
           <li><a href="/faq" className="relative group px-3 py-1 transition-colors  rounded-xl ">
             FAQ
-            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-amber-700 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
+            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
             </ul>
         </div>
@@ -77,7 +77,7 @@ const Footer = () => {
         
     </div>
     <div className=' border-t border-t-white w-4/5  p-4'>
-        <p className="font-light text-start">&copy; {new Date().getFullYear()} Bonga Agro PLC </p>
+        <p className="font-light text-start">&copy; {new Date().getFullYear()} Yebonga Agro PLC </p>
     </div>
   </section>
     );

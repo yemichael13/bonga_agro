@@ -48,17 +48,17 @@ const FAQItem = ({ question, answer, isOpen, toggle }) => {
   return (
     <motion.div
       layout
-      className="border border-amber-700 rounded-xl overflow-hidden bg-white shadow-md"
+      className="border border-blue-400 rounded-xl overflow-hidden bg-white shadow-md"
     >
       <motion.button
         onClick={toggle}
-        className="w-full text-left flex justify-between items-center px-6 py-4 font-semibold text-lg text-amber-800 hover:bg-amber-50 transition-colors duration-200"
+        className="w-full text-left flex justify-between items-center px-6 py-4 font-semibold text-lg text-blue-500 hover:bg-blue-50 transition-colors duration-200"
       >
         {question}
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-2xl font-bold text-amber-700"
+          className="text-2xl font-bold text-blue-400"
         >
           +
         </motion.span>
@@ -72,7 +72,7 @@ const FAQItem = ({ question, answer, isOpen, toggle }) => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="px-6 pb-4 text-gray-700 leading-relaxed bg-amber-50"
+            className="px-6 pb-4 text-gray-700 leading-relaxed bg-blue-50"
           >
             {answer}
           </motion.div>
@@ -91,7 +91,7 @@ export default function FAQ() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-6xl text-center font-serif font-bold text-amber-700 mb-8"
+        className="text-5xl md:text-6xl text-center font-serif font-bold text-blue-500 mb-8"
       >
         Frequently Asked Questions
       </motion.h1>
@@ -123,7 +123,7 @@ export default function FAQ() {
         ))}
       </motion.div>
       <a href="/" className="flex justify-center mt-10">
-        <button className="bg-amber-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-amber-700 duration-300 border-1 border-amber-700 cursor-pointer mb-10">
+        <button className="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-blue-400 duration-300 border-1 border-blue-400 cursor-pointer mb-10">
           Back to Home
         </button>
       </a>  
