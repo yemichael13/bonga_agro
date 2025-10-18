@@ -82,7 +82,7 @@ const FAQItem = ({ question, answer, isOpen, toggle }) => {
   );
 };
 
-export default function FAQ() {
+const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
@@ -130,3 +130,5 @@ export default function FAQ() {
     </div>
   );
 }
+
+export default FAQ;

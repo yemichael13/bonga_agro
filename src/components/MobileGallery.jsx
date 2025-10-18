@@ -44,7 +44,7 @@ function MobileGallery() {
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
             {rowImages.map((image, index) => (
-              <Link to="/image-detail" className="w-52 h-42 object-cover rounded-xl shadow-lg bg-gray-200 flex-shrink-0 cursor-pointer">
+              <Link to="/product-detail" className="w-52 h-42 object-cover rounded-xl shadow-lg bg-gray-200 flex-shrink-0 cursor-pointer">
               <img
                 key={index}
                 src={image}

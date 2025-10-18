@@ -122,7 +122,7 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function ProductDetail() {
+const ProductDetail = () => {
   return (
     <div className="w-full min-h-screen bg-white pt-24">
       <motion.h1
@@ -204,3 +204,5 @@ export default function ProductDetail() {
     </div>
   );
 }
+
+export default ProductDetail;

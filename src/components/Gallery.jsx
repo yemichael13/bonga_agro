@@ -20,7 +20,7 @@ import Dairy from '../assets/dairy.jpg';
 import { motion, useAnimation } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import ImageDetail from './ProductDetail';
+import ImageDetail from '../pages/ProductDetail';
 
 const upperMarquee = [Pic_1, Pic_2, Korarima, Pic_3, Pic_4, Ginger, Pic_5, Pic_6, Honey, Pic_7, Pic_8, Coffee, Pic_9, Pic_10, Dairy, Pic_11];
 const lowerMarquee = [Pic_11, Dairy,  Pic_10, Pic_9, Coffee,  Pic_8, Pic_7, Honey, Pic_6, Pic_5, Ginger, Pic_4, Pic_3, Korarima, Pic_2, Pic_1];
@@ -63,7 +63,7 @@ function Gallery() {
 
         // Helper for overlay effect
         const renderImageWithOverlay = (image, index) => (
-            <Link to="/image-detail" key={index} className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60 block">
+            <Link to="/product-detail" key={index} className="relative group cursor-pointer w-[40vw] sm:w-1/3 h-40 sm:h-60 block">
                 <img src={image} alt={`Marquee Image ${index + 1}`}
                     className="w-full h-full object-cover rounded-lg transition duration-300 group-hover:opacity-60" />
                 {/* 4 shade overlays */}
