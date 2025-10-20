@@ -49,7 +49,7 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                 <div className="relative">
                   {/* Background Images Grid */}
                   <div className="absolute top-5 left-0 right-0 grid grid-cols-1 md:grid-cols-3 md:my-0 my-2 -mx-4 md:-mx-8">
-                    <div 
+                    <motion.div 
                       className=" h-80 md:h-60"
                       style={{
                         backgroundImage: `url(${Korarima})`,
@@ -57,8 +57,11 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                       }}
-                    ></div>
-                    <div 
+                      initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                      animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
+                      transition={{ duration: 0.9, delay: 0 * 0.3 }}
+                    ></motion.div>
+                    <motion.div 
                       className="h-80 md:h-60"
                       style={{
                         backgroundImage: `url(${Ginger})`,
@@ -66,8 +69,11 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                       }}
-                    ></div>
-                    <div 
+                      initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                      animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
+                      transition={{ duration: 0.9, delay: 1 * 0.3 }}
+                    ></motion.div>
+                    <motion.div 
                       className=" h-80 md:h-60"
                       style={{
                         backgroundImage: `url(${Coffee})`,
@@ -75,10 +81,13 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                       }}
-                    ></div>
+                      initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                      animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
+                      transition={{ duration: 0.9, delay: 2 * 0.3 }}
+                    ></motion.div>
                   </div>
                   <div className="absolute top-96 md:top-65 left-0 right-0 grid grid-cols-1 md:grid-cols-3 md:my-0 my-2 -mx-4 md:-mx-8">
-                    <div 
+                    <motion.div 
                       className="h-80 md:h-60"
                       style={{
                         backgroundImage: `url(${Export})`,
@@ -86,8 +95,11 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                       }}
-                    ></div>
-                    <div 
+                      initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                      animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
+                      transition={{ duration: 0.9, delay: 0 * 0.3 }}
+                    ></motion.div>
+                    <motion.div 
                       className="h-80 md:h-60"
                       style={{
                         backgroundImage: `url(${Honey})`,
@@ -95,8 +107,11 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                       }}
-                    ></div>
-                    <div 
+                      initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                      animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
+                      transition={{ duration: 0.9, delay: 1 * 0.3 }}
+                    ></motion.div>
+                    <motion.div 
                       className="h-80 md:h-60"
                       style={{
                         backgroundImage: `url(${Dairy})`,
@@ -104,7 +119,10 @@ From spice farms to global markets — nature’s best, responsibly delivered.
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                       }}
-                    ></div>
+                      initial={isLarge ? { opacity: 0, scale: 0.8, rotateX: 90 } : false}
+                      animate={isLarge && productsInView ? { opacity: 1, scale: 1, rotateX: 0 } : false}
+                      transition={{ duration: 0.9, delay: 2 * 0.3 }}
+                    ></motion.div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6 ">
                     {[{

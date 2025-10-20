@@ -34,20 +34,20 @@ const Footer = () => {
         <div className='flex flex-row justify-center items-center gap-8 md:w-1/2 ' >
             <div >
             <ul className='flex flex-col justify-center items-center gap-8 px-4 py-2 text-sm md:mx-4'>
-                
-          <li><a href="/about" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
-            About Us
+            <li><a href="/" className="relative group px-3 py-1 transition-colors  rounded-xl ">
+            Home
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
-          <li><a href="/product-detail" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
-            Produts
+          <li><a href="/about" className="relative group px-3 py-1 transition-colors  rounded-xl ">
+            About
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
-          <li><a href="#testinomials" onClick={handleSmoothScroll} className="relative group px-3 py-1  rounded-xl ">
-            Testinomials
+          <li><a href="/product-detail" className="relative group px-3 py-1 transition-colors  rounded-xl ">
+            Products
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>
-          <li><a href="#contact" onClick={handleSmoothScroll} className="relative group px-3 py-1 transition-colors  rounded-xl ">
+          
+          <li><a href="/contact" className="relative group px-3 py-1 transition-colors  rounded-xl ">
             Contact
             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
           </a></li>

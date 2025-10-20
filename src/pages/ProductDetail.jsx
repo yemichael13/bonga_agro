@@ -6,6 +6,22 @@ import Honey from '../assets/honey.png';
 import Coffee from '../assets/coffee-tea.jpg';
 import Dairy from '../assets/dairy.jpg';
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+
+function useIsLargeScreen() {
+  const [isLarge, setIsLarge] = React.useState(window.innerWidth >= 768);
+  React.useEffect(() => {
+    function handleResize() {
+      setIsLarge(window.innerWidth >= 768);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return isLarge;
+}
 
 
 const products = [
@@ -33,7 +49,7 @@ const products = [
   },
   {
     title: "Organic Forest Honey",
-    img: Ginger,
+    img: Honey,
     origin: "Highlands and forest areas of Kaffa Zone",
     description:
       "Yebonga Agro’s organic honey is collected from forest and highland apiaries where bees forage on diverse native flora. The result is a rich, flavorful, and chemical-free honey known for its purity and health benefits.",
@@ -54,7 +70,7 @@ const products = [
   },
   {
     title: "Ginger (Fresh and Dried)",
-    img: Honey,
+    img: Ginger,
     origin: "Southern and Southwestern Ethiopia",
     description:
       "Ethiopian ginger is prized for its sharp flavor and aroma. Yebonga Agro produces and processes both fresh and dried ginger suitable for culinary, medicinal, and industrial use.",
@@ -123,8 +139,15 @@ const fadeIn = {
 };
 
 const ProductDetail = () => {
+
+  const footerRef = useRef(null);
+  const footerInView = useInView(footerRef, { amount: 0.5, triggerOnce: false });
+  const isLarge = useIsLargeScreen();
+
   return (
-    <div className="w-full min-h-screen bg-white pt-24">
+    <div>
+      <Navbar />
+      <div className="w-full min-h-screen bg-white pt-24">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -143,50 +166,52 @@ const ProductDetail = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className={`flex flex-col md:flex-row items-center gap-10 ${
-              index % 2 === 0 ? "" : "md:flex-row-reverse"
-            }`}
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            style={{
+              backgroundImage: `url(${product.img})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              minHeight: '600px'
+            }}
           >
-            <motion.img
-              src={product.img}
-              alt={product.title}
-              className="w-full md:w-1/2 rounded-xl shadow-lg"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-serif font-semibold text-blue-400 mb-2">
+            {/* White fade overlay - only covers left half on larger screens */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent md:w-1/2"></div>
+            
+            {/* Content with proper z-index - half width on larger screens */}
+            <div className="relative z-10 p-8 md:p-12 md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-serif font-semibold text-blue-600 mb-2">
                 {product.title}
               </h2>
               {product.scientific && (
-                <p className="italic text-gray-600 mb-2">
+                <p className="italic text-gray-700 mb-2">
                   Scientific name: {product.scientific}
                 </p>
               )}
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-800 mb-4">
                 <span className="font-semibold">Origin:</span> {product.origin}
               </p>
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-gray-800 mb-6 leading-relaxed">
                 {product.description}
               </p>
 
               <div className="space-y-3">
-                <p className="font-semibold text-blue-400">Processing & Quality:</p>
-                <ul className="list-disc list-inside text-gray-700">
+                <p className="font-semibold text-blue-600">Processing & Quality:</p>
+                <ul className="list-disc list-inside text-gray-800">
                   {product.processing.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
 
-                <p className="font-semibold text-blue-400 mt-4">Uses:</p>
-                <ul className="list-disc list-inside text-gray-700">
+                <p className="font-semibold text-blue-600 mt-4">Uses:</p>
+                <ul className="list-disc list-inside text-gray-800">
                   {product.uses.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
 
-                <p className="font-semibold text-blue-400 mt-4">Key Benefits:</p>
-                <ul className="list-disc list-inside text-gray-700">
+                <p className="font-semibold text-blue-600 mt-4">Key Benefits:</p>
+                <ul className="list-disc list-inside text-gray-800">
                   {product.benefits.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -202,6 +227,17 @@ const ProductDetail = () => {
         </button>
       </a>  
     </div>
+    <motion.footer
+      ref={footerRef}
+      className="w-full py-8 bg-blue-400 text-white text-center mt-10"
+      initial={isLarge ? { opacity: 0, y: 40 } : false}
+      animate={isLarge && footerInView ? { opacity: 1, y: 0 } : false}
+      transition={{ duration: 1.2 }}
+    >
+      <Footer />
+    </motion.footer>
+    </div>
+    
   );
 }
 

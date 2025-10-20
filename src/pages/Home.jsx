@@ -9,8 +9,9 @@ import Footer from "../components/Footer";
 import AboutComp from "../components/AboutComp";
 import ProductsComp from "../components/ProductsComp";
 import Testimonials from "../components/Testinomial";
-import Contact from "../components/Contact";
+import Contact from "../components/ContactComp";
 import Hero from "../components/Hero";
+import WhyUs from "../components/WhyUs";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
@@ -77,6 +78,9 @@ const Home = () => {
               <div className="block md:hidden mb-2">
                 <StepsMobile />
         </div>
+        </section>
+        <section id="why-us">
+          <WhyUs />
         </section>
        
         <section id="testimonials" >

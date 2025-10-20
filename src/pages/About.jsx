@@ -1,10 +1,9 @@
-import React, {use, useMemo} from "react";
-import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Pic_10 from "../assets/img_10.jpeg";
 import Pic_11 from "../assets/img_11.jpeg";
-import { Link } from "react-router-dom";
 
 function useIsLargeScreen() {
   const [isLarge, setIsLarge] = React.useState(window.innerWidth >= 768);
@@ -18,105 +17,244 @@ function useIsLargeScreen() {
   return isLarge;
 }
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } },
+};
+
 const About = () => {
-    const feature_1Ref = useRef(null);
-    const feature_2Ref = useRef(null);
-    const [feature_1AnimKey, setFeature_1AnimKey] = React.useState(0);
-    const [feature_2AnimKey, setFeature_2AnimKey] = React.useState(0);
-    const feature_1InView = useInView(feature_1Ref, { amount: 0.5, triggerOnce: false });
-    const feature_2InView = useInView(feature_2Ref, { amount: 0.5, triggerOnce: false });
-    const isLarge = useIsLargeScreen();
-    return (
-        <div>
-            <section id="feature_1" ref={feature_1Ref} className="w-full md:my-8 my-4">
-                <div className="w-full md:px-10 px-5 py-5 flex flex-col gap-10 md:flex-row justify-between items-center my-10">
-                  <motion.img 
-                    key={feature_1AnimKey}
-                    src={Pic_10} 
-                    alt="Bonga Agro" 
-                    className="mx-auto rounded-lg shadow-lg md:w-1/2 max-h-100vh md:hover:w-3/5 duration-300"
-                    initial={isLarge ? { opacity: 0, x: -40 } : false}
-                    animate={isLarge && feature_1InView ? { opacity: 1, x: 0 } : false}
-                    transition={{ duration: 3 }}
-                  />
-                  <div className="md:w-1/2">
-                    <div className="flex items-center gap-4">
-                      <motion.div 
-                        className="md:absolute w-0 md:w-100 h-0 border border-black rotate-90 -translate-x-1/2 -translate-y-8"
-                        animate={isLarge && feature_1InView  ? { x: [0, -50, 50, 0] } : false}
-                        transition={{ duration: 3 }}
-                      />
-                      <motion.div
-                        initial={isLarge ? { opacity: 0, x: 40 } : false}
-                        animate={isLarge && feature_1InView ? { opacity: 1, x: 0 } : false}
-                        transition={{ duration: 3 }}
-                      >
-                        <h3 className="text-3xl font-serif my-4 ml-4">Ethiopian Korerima</h3>
-                        <p className="mb-10 ml-4">Discover the unique and aromatic Ethiopian korerima spice for your dishes.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Sustainable Sourcing</h3>
-                        <p className="mb-10 ml-4">Ethically sourced and sustainably produced spices to enhance your culinary experience.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Quality Spices</h3>
-                        <p className="mb-10 ml-4">Explore our wide range of premium spices sourced directly from Ethiopia.</p>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section className="my-10">
-                <div className="w-9/10 md:h-60 mx-auto rounded-2xl my-8 bg-blue-100 border-1 border-gray-200 shadow-lg">
-                  <div className="w-full md:h-60 mx-auto rounded-2xl px-4 md:py-10 md:px-10 bg-white border-1 border-gray-200 shadow-lg hover:rotate-1 justify-center items-center duration-200">
-                    <div className="flex flex-col md:flex-row justify-between items-center py-auto gap-5 md:gap-20">
-                      <div>
-                        <h2 className="font-serif text-4xl my-5">Experience the Flavours of Ethiopia</h2>
-                        <p className="text-lg">Explore our premium korerima and spice products, sourced directly from Ethiopia.</p>
-                      </div>
-                      <Link to='/product-detail'>
-                      <button className="bg-blue-400 text-center text-white font-bold rounded-sm px-4 py-2 mx-2 my-2 hover:bg-white hover:text-blue-400 hover:cursor-pointer border-1 border-blue-400 transform-colors duration-300"> Discover our Products</button>
-                      </Link>
-                    </div>
-                
-                  </div>
-                </div>
-                
-              </section>
-              <section 
-                id="feature_2"
-                ref={feature_2Ref}
-                className="w-full md:my-8 my-4"
-              >
-                <div className="w-full md:px-10 px-5 py-5 flex flex-col gap-10 md:flex-row justify-between items-center my-10">
-                  <div className="md:w-1/2">
-                    <div className="flex items-center gap-4">
-                      <motion.div 
-                        className="md:absolute w-0 md:w-100 h-0 border border-black rotate-90 -translate-x-1/2 -translate-y-8"
-                        animate={isLarge && feature_2InView  ? { x: [0, -50, 50, 0] } : false}
-                      />
-                      <motion.div
-                        initial={isLarge ? { opacity: 0, x: -40 } : false}
-                        animate={isLarge && feature_2InView ? { opacity: 1, x: 0 } : false}
-                        transition={{ duration: 3 }}
-                      >
-                        <h3 className="text-3xl font-serif my-4 ml-4">Premium Quality Korerima</h3>
-                        <p className="mb-10 ml-4">We source the finest korerima seeds and spices to ensure premium quality in every product.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Ethically Sourced Ingredients</h3>
-                        <p className="mb-10 ml-4">Our commitment to ethical sourcing practices guarantees that our products are sustainably produced.</p>
-                        <h3 className="text-3xl font-serif my-4 ml-4">Global Export Reach</h3>
-                        <p className="mb-10 ml-4">With a worldwide distribution network, we deliver our authentic Ethiopian spices to customers globally.</p>
-                      </motion.div>
-                    </div>
-                  </div>
-                  <motion.img 
-                    src={Pic_11} 
-                    alt="Bonga Agro" 
-                    className="mx-auto rounded-lg shadow-lg md:w-1/2 max-h-100vh md:hover:w-3/5 duration-300"
-                    key={feature_2AnimKey}
-                    initial={isLarge ? { opacity: 0, x: 40 } : false}
-                    animate={isLarge && feature_2InView ? { opacity: 1, x: 0 } : false}
-                    transition={{ duration: 3 }} 
-                  />
-                </div>
-              </section>
-        </div>
-    )
-}
+  const companyRef = useRef(null);
+  const visionRef = useRef(null);
+  const valuesRef = useRef(null);
+  const qualityRef = useRef(null);
+
+  const companyInView = useInView(companyRef, { amount: 0.3 });
+  const visionInView = useInView(visionRef, { amount: 0.3 });
+  const valuesInView = useInView(valuesRef, { amount: 0.3 });
+  const qualityInView = useInView(qualityRef, { amount: 0.3 });
+
+  const footerRef = useRef(null);
+  const footerInView = useInView(footerRef, { amount: 0.5, triggerOnce: false });
+  const isLarge = useIsLargeScreen();
+
+  return (
+    <div className="bg-white text-gray-800">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex flex-col items-center justify-center text-center bg-gradient-to-b from-green-50 to-amber-50 px-6 pt-28">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl md:text-6xl font-serif font-bold text-blue-600 mb-4"
+        >
+          About Yebonga Agro PLC
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="max-w-2xl text-lg md:text-xl text-gray-700"
+        >
+          Cultivating Ethiopia’s natural heritage through sustainable production
+          of premium spices, honey, and dairy — from the forest to the world.
+        </motion.p>
+      </section>
+
+      {/* Company Overview */}
+      <section
+        ref={companyRef}
+        className="py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10"
+      >
+        <motion.img
+          src={Pic_10}
+          alt="Yebonga Agro plantation"
+          className="rounded-xl shadow-lg md:w-1/2"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={companyInView ? "visible" : "hidden"}
+        />
+        <motion.div
+          className="md:w-1/2"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={companyInView ? "visible" : "hidden"}
+        >
+          <h2 className="text-4xl font-serif text-blue-600 mb-4">
+            Who We Are
+          </h2>
+          <p className="leading-relaxed text-gray-700 mb-4">
+            <strong>Yebonga Agro Private Limited Company</strong> is an emerging
+            agribusiness enterprise dedicated to the production, processing, and
+            marketing of high-quality spices, honey, and dairy products.
+            Established with the vision of harnessing Ethiopia’s rich
+            agricultural resources, Yebonga Agro focuses on delivering safe,
+            nutritious, and premium products to both local and international
+            markets.
+          </p>
+          <p className="leading-relaxed text-gray-700">
+            We work hand-in-hand with smallholder farmers and cooperatives to
+            strengthen agricultural value chains, enhance product quality, and
+            promote sustainable rural development through training, inputs, and
+            market linkages.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Vision, Mission, and Background */}
+      <section
+        ref={visionRef}
+        className="bg-blue-50 py-16 px-6 md:px-20 flex flex-col-reverse md:flex-row items-center gap-10"
+      >
+        <motion.div
+          className="md:w-1/2"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={visionInView ? "visible" : "hidden"}
+        >
+          <h2 className="text-4xl font-serif text-blue-600 mb-4">
+            Vision & Background
+          </h2>
+          <p className="leading-relaxed mb-4 text-gray-700">
+            Yebonga Agro PLC is driven by a powerful vision — to become a
+            trusted leader in sustainable agribusiness, contributing to rural
+            transformation, export diversification, and environmental
+            preservation. Although newly established, the company is deeply
+            rooted in Ethiopia’s agricultural heritage and modern innovation.
+          </p>
+          <p className="leading-relaxed text-gray-700">
+            Founded with an initial capital of <strong>10 million ETB</strong>,
+            Yebonga Agro has identified the lush forests of the Kaffa Zone in
+            South-Western Ethiopia as ideal for cultivating high-value spices,
+            particularly <strong>false cardamom (Aframomum corrorima)</strong> —
+            known locally as korarima. Alongside spice cultivation, the company
+            is expanding into organic honey production and dairy processing,
+            ensuring every product meets global quality standards.
+          </p>
+        </motion.div>
+        <motion.img
+          src={Pic_11}
+          alt="Spice Processing Facility"
+          className="rounded-xl shadow-lg md:w-1/2"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={visionInView ? "visible" : "hidden"}
+        />
+      </section>
+
+      {/* Core Values */}
+      <section
+        ref={valuesRef}
+        className="py-16 px-6 md:px-20 text-center bg-white"
+      >
+        <motion.h2
+          className="text-4xl font-serif text-blue-600 mb-10"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={valuesInView ? "visible" : "hidden"}
+        >
+          Our Core Values
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={valuesInView ? "visible" : "hidden"}
+        >
+          {[
+            "Quality Excellence",
+            "Sustainability",
+            "Innovation & Growth",
+            "Integrity & Transparency",
+            "Inclusiveness",
+            "Partnership & Collaboration",
+            "Customer-Centric Approach",
+          ].map((value, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-blue-50 rounded-lg shadow-md border border-blue-100"
+            >
+              <h3 className="text-xl font-semibold text-blue-400 mb-2">
+                {value}
+              </h3>
+              <p className="text-gray-600">
+                {
+                  [
+                    "We uphold uncompromising quality from production to packaging.",
+                    "We operate with deep respect for nature and future generations.",
+                    "We embrace creativity, technology, and continuous improvement.",
+                    "We value honesty and transparency in every relationship.",
+                    "We empower local farmers and communities inclusively.",
+                    "We believe in strong partnerships for sustainable success.",
+                    "We always put customer satisfaction at the heart of our mission.",
+                  ][i]
+                }
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Product Quality Section */}
+      <section
+        ref={qualityRef}
+        className="py-16 px-6 md:px-20 bg-gradient-to-b from-blue-50 to-white"
+      >
+        <motion.h2
+          className="text-4xl font-serif text-blue-600 text-center mb-10"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={qualityInView ? "visible" : "hidden"}
+        >
+          Quality You Can Trust
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={qualityInView ? "visible" : "hidden"}
+        >
+          {[
+            {
+              title: "Spices",
+              desc: "Cultivated in the fertile forests of Keficho Zone, our spices — especially korarima — are grown naturally, harvested carefully, and processed hygienically for unmatched aroma and flavor.",
+            },
+            {
+              title: "Organic Honey",
+              desc: "Sourced from Ethiopia’s highlands and forests, our honey is 100% pure and chemical-free, produced using eco-friendly and traceable organic beekeeping practices.",
+            },
+            {
+              title: "Dairy Products",
+              desc: "Our dairy line emphasizes freshness, nutrition, and hygiene — ensuring every product meets rigorous safety and quality standards.",
+            },
+          ].map((card, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -6 }}
+              className="p-6 bg-white border border-blue-100 rounded-xl shadow-md text-center"
+            >
+              <h3 className="text-2xl font-semibold text-blue-600 mb-3">
+                {card.title}
+              </h3>
+              <p className="text-gray-700 leading-relaxed">{card.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      <motion.footer
+        ref={footerRef}
+        className="w-full py-8 bg-blue-400 text-white text-center mt-10"
+        initial={isLarge ? { opacity: 0, y: 40 } : false}
+        animate={isLarge && footerInView ? { opacity: 1, y: 0 } : false}
+        transition={{ duration: 1.2 }}
+      >
+        <Footer />
+      </motion.footer>
+    </div>
+  );
+};
+
 export default About;

@@ -1,5 +1,21 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+
+function useIsLargeScreen() {
+  const [isLarge, setIsLarge] = React.useState(window.innerWidth >= 768);
+  React.useEffect(() => {
+    function handleResize() {
+      setIsLarge(window.innerWidth >= 768);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return isLarge;
+}
 
 const faqs = [
   {
@@ -84,9 +100,14 @@ const FAQItem = ({ question, answer, isOpen, toggle }) => {
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const footerRef = useRef(null);
+  const footerInView = useInView(footerRef, { amount: 0.5, triggerOnce: false });
+  const isLarge = useIsLargeScreen();
 
   return (
-    <div className="w-full min-h-screen bg-white pt-28 pb-16 px-6 md:px-20">
+    <div>
+      <Navbar />
+      <div className="w-full min-h-screen bg-white pt-28 pb-16 px-6 md:px-20">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -128,6 +149,17 @@ const FAQ = () => {
         </button>
       </a>  
     </div>
+    <motion.footer
+      ref={footerRef}
+      className="w-full py-8 bg-blue-400 text-white text-center mt-10"
+      initial={isLarge ? { opacity: 0, y: 40 } : false}
+      animate={isLarge && footerInView ? { opacity: 1, y: 0 } : false}
+      transition={{ duration: 1.2 }}
+    >
+      <Footer />
+    </motion.footer>
+    </div>
+    
   );
 }
 
