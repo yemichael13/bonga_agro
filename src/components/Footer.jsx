@@ -57,7 +57,7 @@ const Footer = () => {
           </a></li>
             </ul>
         </div>
-        <div className='flex flex-col justify-center items-center gap-8 md:w-1/2 border-r border-r-white' >
+        <div className='flex flex-col justify-center items-center gap-8 md:w-1/2 md:border-r md:border-r-white' >
             <h4 className='text-2xl font-bold'>Find Us</h4>
             <ul className='flex flex-col justify-center items-center gap-8 px-4 py-2 text-sm md:mx-4'>
                                 <a href="" target="_blank" rel="noopener noreferrer" className='cursor-pointer flex gap-2 items-baseline transition-transform duration-300 hover:-translate-y-2'>
@@ -78,7 +78,7 @@ const Footer = () => {
         
         
     </div>
-    <div className=' border-t border-t-white w-4/5  p-4'>
+    <div className=' border-t border-t-white w-4/5   p-4'>
         <p className="font-light text-start">&copy; {new Date().getFullYear()} Yebonga Agro PLC </p>
     </div>
   </section>

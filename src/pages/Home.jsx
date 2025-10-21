@@ -69,7 +69,7 @@ const Home = () => {
         <section id="products" >
             <ProductsComp />
         </section>
-        <section id="steps" >
+        <section id="steps" className="mt-30 md:mt-60" >
             {/* Steps Section: desktop/tablet only */}
             <div className="hidden md:block mb-2">
                 <StepsSection />

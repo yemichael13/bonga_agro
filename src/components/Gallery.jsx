@@ -36,22 +36,22 @@ function Gallery() {
     const startUpper = () => {
         controlsUpper1.start({
             x: "-100%",
-            transition: { duration: 40, repeat: Infinity, ease: "linear" }
+            transition: { duration: 80, repeat: Infinity, ease: "linear" }
         });
         controlsUpper2.start({
             x: "-100%",
-            transition: { duration: 40, repeat: Infinity, ease: "linear" }
+            transition: { duration: 80, repeat: Infinity, ease: "linear" }
         });
     };
 
     const startLower = () => {
         controlsLower1.start({
             x: 0,
-            transition: { duration: 40, repeat: Infinity, ease: "linear" }
+            transition: { duration: 80, repeat: Infinity, ease: "linear" }
         });
         controlsLower2.start({
             x: 0,
-            transition: { duration: 40, repeat: Infinity, ease: "linear" }
+            transition: { duration: 80, repeat: Infinity, ease: "linear" }
         });
     };
 
