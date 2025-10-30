@@ -9,7 +9,7 @@ const Footer = () => {
     const targetId = e.currentTarget.getAttribute('href').replace('#', '');
     const target = document.getElementById(targetId);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       setMenuOpen(false);
     }
   };

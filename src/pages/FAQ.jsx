@@ -143,11 +143,7 @@ const FAQ = () => {
           />
         ))}
       </motion.div>
-      <a href="/" className="flex justify-center mt-10">
-        <button className="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-blue-400 duration-300 border-1 border-blue-400 cursor-pointer mb-10">
-          Back to Home
-        </button>
-      </a>  
+       
     </div>
     <motion.footer
       ref={footerRef}

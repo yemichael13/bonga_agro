@@ -3,7 +3,7 @@ import React, {useMemo} from "react";
 import Navbar from "../components/Navbar";
 import Gallery from "../components/Gallery";
 import MobileGallery from "../components/MobileGallery";
-import StepsSection from "../components/StepsSection";
+import StepsSection from "../components/Steps";
 import StepsMobile from "../components/StepsMobile";
 import Footer from "../components/Footer";
 import AboutComp from "../components/AboutComp";
@@ -39,7 +39,7 @@ const Home = () => {
     const targetId = e.currentTarget.getAttribute('href').replace('#', '');
     const target = document.getElementById(targetId);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       setMenuOpen(false);
     }
     if (targetId === "products") setProductsAnimKey((k) => k + 1);
@@ -50,9 +50,9 @@ const Home = () => {
   const footerInView = useInView(footerRef, { amount: 0.5, triggerOnce: false });
   const isLarge = useIsLargeScreen();
   return (
-    <div className="w-full h-auto pt-20">
+    <div className="w-full h-auto md:pt-0 pt-20">
         <Navbar />
-        <section id="hero" >
+        <section id="hero" className="md:top-0" >
             <Hero />
         </section>
 

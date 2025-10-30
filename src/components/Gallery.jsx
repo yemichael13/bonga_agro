@@ -87,10 +87,21 @@ function Gallery() {
             {/* Desktop Marquee Gallery */}
             <div className="md:relative hidden md:block my-8 mx-4 md:mx-0">
                 {/* ...existing code... */}
-                <div className="pointer-events-none absolute top-0 left-0 h-full w-8 z-10"
-                    style={{ background: "linear-gradient(to right, #fafcfb 20%, #fafcfb 80%, transparent)" }} />
-                <div className="pointer-events-none absolute top-0 right-0 h-full w-8 z-10"
-                    style={{ background: "linear-gradient(to left, #fafcfb 20%, #fafcfb 80%, transparent)" }} />
+                <div
+  className="pointer-events-none absolute top-0 left-0 h-full w-16 z-10"
+  style={{
+    background:
+      "linear-gradient(to right, #fafcfb 0%, rgba(250,252,251,0.9) 40%, transparent)",
+  }}
+/>
+<div
+  className="pointer-events-none absolute top-0 right-0 h-full w-16 z-10"
+  style={{
+    background:
+      "linear-gradient(to left, #fafcfb 0%, rgba(250,252,251,0.9) 40%, transparent)",
+  }}
+/>
+
                 <section>
                     {/* ...existing code... */}
                     {/* Upper row */}

@@ -166,7 +166,7 @@ const ProductDetail = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            className="relative rounded-r-2xl overflow-hidden "
             style={{
               backgroundImage: `url(${product.img})`,
               backgroundSize: 'cover',
@@ -221,11 +221,7 @@ const ProductDetail = () => {
           </motion.div>
         ))}
       </div>
-      <a href="/" className="flex justify-center">
-        <button className="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-blue-400 duration-300 border-1 border-blue-400 cursor-pointer mb-10">
-          Back to Home
-        </button>
-      </a>  
+       
     </div>
     <motion.footer
       ref={footerRef}
