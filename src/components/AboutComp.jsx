@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import ColorBends from "../assets/ColorBends";
 
-// ✅ Hook to detect large screens
+
 function useIsLargeScreen() {
   const [isLarge, setIsLarge] = useState(window.innerWidth >= 768);
   useEffect(() => {
@@ -21,7 +21,7 @@ const AboutComp = () => {
 
   return (
     <div className="relative overflow-hidden py-20">
-      {/* ✅ Background Aurora (soft blue gradient version for consistency) */}
+      
       <div className="absolute inset-0 -z-10 opacity-70">
         <ColorBends
           colors={["#A7C7E7", "#7BD3EA", "#C2E9FB"]}

@@ -65,7 +65,15 @@ const ScrollStack = ({
         const rect = element.getBoundingClientRect();
         return rect.top + window.scrollY;
       } else {
-        return element.offsetTop;
+        // Accumulate offsetTop relative to the scroll container
+        let offset = 0;
+        let el = element;
+        const scroller = scrollerRef.current;
+        while (el && el !== scroller) {
+          offset += el.offsetTop;
+          el = el.offsetParent;
+        }
+        return offset;
       }
     },
     [useWindowScroll]
@@ -301,7 +309,14 @@ const ScrollStack = ({
   ]);
 
   return (
-    <div className={`scroll-stack-scroller ${className}`.trim()} ref={scrollerRef}>
+    <div
+      className={`scroll-stack-scroller ${className}`.trim()}
+      ref={scrollerRef}
+      style={{
+        overflowY: useWindowScroll ? 'visible' : undefined,
+        height: useWindowScroll ? 'auto' : undefined
+      }}
+    >
       <div className="scroll-stack-inner">
         {children}
         {/* Spacer so the last pin can release cleanly */}
