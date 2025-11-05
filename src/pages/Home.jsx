@@ -15,6 +15,7 @@ import WhyUs from "../components/WhyUs";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import Forest from "../assets/forest.jpg";
 
 
 
@@ -92,13 +93,27 @@ const Home = () => {
        
         <motion.footer
           ref={footerRef}
-          className="w-full py-8 bg-blue-400 text-white text-center mt-10"
+          className="w-full py-8 text-white text-center mt-10 relative overflow-hidden"
           initial={isLarge ? { opacity: 0, y: 40 } : false}
           animate={isLarge && footerInView ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1.2 }}
->
-  <Footer />
-</motion.footer>
+        >
+          {/* Blurred forest background image (covers footer) */}
+          <img
+            src={Forest}
+            alt="Forest background"
+            className="absolute inset-0 w-full h-full object-cover filter blur-sm brightness-75"
+            style={{ transform: 'translateZ(0)' }}
+          />
+
+          {/* Optional dark overlay to keep text readable */}
+          <div className="absolute inset-0 bg-black/10" />
+
+          {/* Footer content on top */}
+          <div className="relative z-10">
+            <Footer />
+          </div>
+        </motion.footer>
       </div>
   );
 }

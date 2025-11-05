@@ -67,7 +67,7 @@ const Footer = () => {
                                     <ion-icon name="logo-instagram"></ion-icon>Instagram
                                 </a>
                                 <a href="" target="_blank" rel="noopener noreferrer" className='cursor-pointer flex gap-2 items-baseline transition-transform duration-300 hover:-translate-y-2'>
-                                    <ion-icon name="logo-youtube"></ion-icon>Youtube
+                                    <ion-icon name="logo-linkedin"></ion-icon>LinkedIN
                                 </a>
                                 <a href="" target="_blank" rel="noopener noreferrer" className='cursor-pointer flex gap-2 items-baseline transition-transform duration-300 hover:-translate-y-2'>
                                     <ion-icon name="logo-tiktok"></ion-icon>Tiktok
