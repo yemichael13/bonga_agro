@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../assets/logo.png';
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Newsletter from './Newsletter';
 
 const Footer = () => {
     const handleSmoothScroll = (e) => {
@@ -24,11 +25,8 @@ const Footer = () => {
                 <img src={Logo} alt="Logo" className="h-20 w-20 object-contain " />
             </a>
             <div> 
-              <h5>Subscribe to our newsletter for the latest updates on new features and product releases.</h5>
-              <div className='flex flex-row mt-4'>
-                <input type="email" placeholder='Enter your email' className='border-1 bg-white border-gray-500 rounded-l-full p-2 w-2/3 outline-none text-black text-center'/>
-                <button className='bg-blue-500 text-center text-white font-semibold px-2 md:px-6 py-2 border-1 w-1/3 border-blue-700 rounded-r-full hover:bg-white cursor-pointer hover:text-blue-400 duration-300'>Subscribe</button>
-              </div>
+              
+              <Newsletter />
             </div>
         </div>
         <div className='flex flex-row justify-center items-center gap-8 md:w-1/2 ' >
@@ -79,7 +77,7 @@ const Footer = () => {
         
     </div>
     <div className=' border-t border-t-white w-4/5   p-4'>
-        <p className="font-light text-start">&copy; {new Date().getFullYear()} Yebonga Agro PLC </p>
+        <p className="font-light text-center">&copy; {new Date().getFullYear()} Yebonga Agro PLC </p>
     </div>
   </section>
     );

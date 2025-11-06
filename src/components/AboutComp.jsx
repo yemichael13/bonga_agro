@@ -41,7 +41,7 @@ const AboutComp = () => {
       <section
         id="about-us"
         ref={aboutRef}
-        className="relative w-full my-8 pt-10 px-6 md:px-16 z-10"
+        className="relative w-full my-8  px-6 md:px-16 z-10"
       >
         <motion.h1
           key={aboutAnimKey}

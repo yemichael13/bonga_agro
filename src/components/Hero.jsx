@@ -39,7 +39,7 @@ const Hero = () => {
 
 
           blend={0.3}
-          amplitude={0.5}
+          amplitude={0.2}
           speed={0.5}
         />
       </div>

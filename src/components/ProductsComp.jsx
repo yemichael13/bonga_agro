@@ -28,10 +28,10 @@ const ProductsComp = () => {
     const isLarge = useIsLargeScreen();
     return (
         <div>
-            <section id="products" ref={productsRef} className="w-full my-8 pt-25 px-4 md:px-10">
+            <section id="products" ref={productsRef} className="w-full my-8 px-4 md:px-10">
                 <motion.h1
                   key={productsAnimKey}
-                  className="font-serif text-6xl text-end my-4"
+                  className="font-serif text-6xl text-center my-4"
                   initial={isLarge ? { opacity: 0, x: 100 } : false}
                   animate={isLarge && productsInView ? { opacity: 1, x: 0 } : false}
                   transition={{ duration: 1.2 }}
