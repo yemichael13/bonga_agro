@@ -62,7 +62,7 @@ const Navbar = () => {
               transition={{ duration: 2, delay: idx * 0.5 }}
             >
               {item.isLink ? (
-                <Link to={item.href} className="relative group font-semibold px-3 py-1 transition-colors text-blue-600 text-shadow-2 duration-200 rounded-xl hover:text-blue-600">
+                <Link to={item.href} className="relative group font-semibold px-3 py-1 transition-colors text-gray-900 text-shadow-2 duration-200 rounded-xl hover:text-blue-600">
                   {item.label}
                   <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-400 rounded-full w-0 group-hover:w-full  transition-all duration-300"></span>
                 </Link>
