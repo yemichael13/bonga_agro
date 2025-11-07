@@ -50,7 +50,7 @@ const Hero = () => {
     <section
       id="hero"
       ref={homeRef}
-      className="relative pt-16 min-h-[100vh] overflow-hidden md:pt-20"
+      className="relative pt-16 min-h-screen overflow-hidden md:pt-20"
     >
       {/* Background slideshow - full width/height */}
       <div className="absolute inset-0 -z-10">
@@ -68,12 +68,12 @@ const Hero = () => {
       </div>
 
       {/* Left fade to white for readability on larger screens */}
-      <div className="absolute inset-y-0 left-0  md:w-1/2 pointer-events-none bg-gradient-to-r from-white/95 to-transparent -z-0" />
+      <div className="absolute inset-y-0 left-0  md:w-1/2 pointer-events-none bg-linear-to-r from-white/95 to-transparent z-0" />
 
       {/* Content: overlayed on top of the background */}
       <div className="relative z-20 flex items-center justify-start h-full">
         {/* Text column - on md+ positioned left, on small screens centered */}
-        <div className="w-full max-w-3xl px-6 md:px-16 py-12 md:py-20">
+        <div className="w-full max-w-3xl px-6 md:px-16 py-12 md:py-10">
         <motion.h1
           key={homeAnimKey}
           className="md:text-8xl text-7xl text-blue-700 font-bold px-2 mb-6 leading-tight text-center md:text-left"
