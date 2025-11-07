@@ -31,7 +31,7 @@ const Contact = () => {
     <input
       type="hidden"
       name="_captcha"
-      value="false"
+      value="true"
     />
     <input
       type="hidden"
@@ -64,7 +64,7 @@ const Contact = () => {
 
     <button
       type="submit"
-      className="bg-blue-500 cursor-pointer text-white w-1/4 px-4 py-2 mx-auto rounded-xl cta-btn font-semibold hover:bg-white hover:text-blue-400 border-1 border-blue-500 transition-all duration-300"
+      className="bg-blue-500 cursor-pointer text-white w-1/2 md:w-1/4 px-4 py-2 mx-auto rounded-xl cta-btn font-semibold hover:bg-white hover:text-blue-400 border-1 border-blue-500 transition-all duration-300"
     >
       Send Message
     </button>

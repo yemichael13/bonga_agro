@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Aurora from "../assets/Aurora";
 
+
 function useIsLargeScreen() {
   const [isLarge, setIsLarge] = useState(window.innerWidth >= 768);
   useEffect(() => {
