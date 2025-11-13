@@ -92,8 +92,7 @@ const StepsSection = () => {
       </div>
       {/* Right Side Cards */}
       
-
-    <ScrollStack>
+            <ScrollStack >
       <ScrollStackItem>
         <h2>Quality Korerima and Spices</h2>
         <p>We source the finest korerima and spices from Ethiopia, known for their exceptional quality and rich flavors.</p>
@@ -111,6 +110,9 @@ const StepsSection = () => {
         <p>We are committed to providing our customers with top-notch products and excellent service, ensuring their satisfaction with every purchase.</p>
       </ScrollStackItem>
     </ScrollStack>
+      
+
+    
         </div>
   );
 };

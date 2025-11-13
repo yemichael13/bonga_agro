@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import Forest from "../assets/forest.jpg";
+import Forest from "../assets/forest_2.jpg";
 
 function useIsLargeScreen() {
     const [isLarge, setIsLarge] = React.useState(window.innerWidth >= 768);

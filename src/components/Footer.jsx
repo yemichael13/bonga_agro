@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../assets/yap-logo.png';
+import Logo from '../assets/Yap_Logo__1.png';
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Newsletter from './Newsletter';
@@ -21,8 +21,8 @@ const Footer = () => {
         <section id='footer'>
     <div className='w-full h-auto  flex md:flex-row flex-col gap-4 md:justify-between items-center  mt-2 md:mt-8 p-8'>
         <div className='flex flex-col justify-cente items-center' >
-            <a href="/" className="cursor-pointer ">
-                <img src={Logo} alt="Logo" className="h-40 w-40 object-contain " />
+            <a href="/" className="cursor-pointer border border-white backdrop:blur-lg bg-white/20 rounded-3xl">
+                <img src={Logo} alt="Logo" className="h-50 w-50 object-contain " />
             </a>
             <div> 
               
@@ -65,7 +65,7 @@ const Footer = () => {
                                     <ion-icon name="logo-instagram"></ion-icon>Instagram
                                 </a>
                                 <a href="" target="_blank" rel="noopener noreferrer" className='cursor-pointer flex gap-2 items-baseline transition-transform duration-300 hover:-translate-y-2'>
-                                    <ion-icon name="logo-linkedin"></ion-icon>LinkedIN
+                                    <ion-icon name="logo-linkedin"></ion-icon>LinkedIn
                                 </a>
                                 <a href="" target="_blank" rel="noopener noreferrer" className='cursor-pointer flex gap-2 items-baseline transition-transform duration-300 hover:-translate-y-2'>
                                     <ion-icon name="logo-tiktok"></ion-icon>Tiktok

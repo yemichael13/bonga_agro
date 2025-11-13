@@ -12,10 +12,11 @@ import Testimonials from "../components/Testinomial";
 import Contact from "../components/ContactComp";
 import Hero from "../components/Hero";
 import WhyUs from "../components/WhyUs";
+import CEOInfo from "../components/ceoInfo";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import Forest from "../assets/forest.jpg";
+import Forest from "../assets/forest_2.jpg";
 
 
 
@@ -68,9 +69,9 @@ const Home = () => {
             <AboutComp />
         </section>
         <section id="products" >
-            <ProductsComp />
+            <ProductsComp/>
         </section>
-        <section id="steps" className="mt-30 md:mt-60" >
+        <section id="steps" className="" >
             {/* Steps Section: desktop/tablet only */}
             <div className="hidden md:block mb-2">
                 <StepsSection />
@@ -79,6 +80,7 @@ const Home = () => {
               <div className="block md:hidden mb-2">
                 <StepsMobile />
         </div>
+        
         </section>
         <section id="why-us">
           <WhyUs />
@@ -86,6 +88,9 @@ const Home = () => {
        
         <section id="testimonials" >
             <Testimonials />
+        </section>
+        <section id="ceo-info" >
+            <CEOInfo />
         </section>
         <section id="contact" >
             <Contact />

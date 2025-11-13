@@ -37,7 +37,7 @@ const AboutComp = () => {
         />
       </div>
 
-      {/* ✅ About Section */}
+      
       <section
         id="about-us"
         ref={aboutRef}

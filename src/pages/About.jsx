@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Pic_10 from "../assets/img_10.jpeg";
 import Pic_11 from "../assets/img_11.jpeg";
-import Forest from "../assets/forest.jpg";
+import Forest from "../assets/forest_2.jpg";
 
 function useIsLargeScreen() {
   const [isLarge, setIsLarge] = React.useState(window.innerWidth >= 768);
